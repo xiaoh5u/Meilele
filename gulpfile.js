@@ -59,6 +59,7 @@ gulp.task('sass', function () {
     }))
     .pipe(sourcemaps.init())
     .pipe(gulp.dest('./dist/css'))
+    .pipe(gulp.dest('./src/css'))
     .pipe(cleancss())
     .pipe(rename({
       suffix: '.min'

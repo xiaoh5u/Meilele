@@ -3,70 +3,101 @@
 $global-color: #e62318;
 
 // reset文件*********************************************************
-body,p,h1,h2,h3,h4,h5,h6,dl,ol,ul,dd,input,textarea,button{
-	padding: 0;
-	margin: 0;
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+ol,
+ul,
+dd,
+input,
+textarea,
+button {
+    padding: 0;
+    margin: 0;
 }
-img{
-	vertical-align: top;
-	border:0;
-	width: 100%;
+
+img {
+    vertical-align: top;
+    border: 0;
+    width: 100%;
 }
-a{
-	color: inherit;
-	text-decoration: none;
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
-li{
-	list-style: none;
+
+li {
+    list-style: none;
 }
-body{
-	font-family: "微软雅黑","宋体",Arial;
-	font-size: 12px;
-	color: #666;
+
+body {
+    font-family: "微软雅黑", "宋体", Arial;
+    font-size: 12px;
+    color: #666;
 }
-input{
-	color: inherit;
-	font-size: inherit;
-	font-family: inherit;
+
+input {
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
 }
-textarea{
-	resize:none;
+
+textarea {
+    resize: none;
 }
-input:focus,button:focus,textarea:focus,select:focus{
-	outline: none;
+
+input:focus,
+button:focus,
+textarea:focus,
+select:focus {
+    outline: none;
 }
+
 /*input,button,textarea,select{
 	outline: none;
 }*/
-input[type="button"],input[type="reset"],input[type="submit"]{
-	cursor: pointer;
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    cursor: pointer;
 }
 
-.sl{
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow:ellipsis;
-}
-.w{
-	width: 1200px;
-	margin-left: auto;
-	margin-right: auto;
-}
-.clear:after{
-	content: "";
-	display: block;
-	clear: both;
-	height:0;
-	overflow: hidden;
-	visibility: hidden;
-}
-.clear{
-	zoom: 1;
+.sl {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-a:hover{
-	color: #e62318
+.w {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.clear {
+    zoom: 1;
+}
+
+a:hover {
+    color: #e62318
+}
+
 // reset文件*********************************************************
 
 
@@ -460,13 +491,13 @@ header {
 
     //*********************底部滑块********************
     .scroll-btn {
-        width: 136px;
         position: absolute;
         bottom: 10px;
         left: 0;
         right: 0;
         margin: auto;
         z-index: 21;
+        text-align: center;
 
         li {
             width: 30px;
@@ -474,7 +505,7 @@ header {
             margin: 0 2px;
             background-color: #fff;
             cursor: pointer;
-            float: left;
+            display: inline-block;
         }
     }
 
@@ -503,15 +534,21 @@ header {
                 background-color: rgba(255, 255, 255, .9);
                 color: #333;
                 padding-left: 25px;
+
+                // .banner-sub-menu{
+                //     display: block;
+                //     transition: .3s;
+                //     padding-left: 10px;
+
+                // }
+
             }
 
-            // .line {
-            //     // margin: 0 2px;
-            // }
 
             a {
                 font-size: 14px;
             }
+
 
         }
 
@@ -536,7 +573,6 @@ header {
             }
 
         }
-
 
         .item-title-middle {
             .icon {
@@ -583,7 +619,7 @@ header {
 
 
         .banner-sub-menu {
-            width: 750px;
+            width: 616px;
             height: 427px;
             padding: 9px 30px 25px 0;
             left: 200px;
@@ -593,6 +629,7 @@ header {
             position: absolute;
             line-height: 20px;
             color: #333;
+            display: none;
 
             .list-module {
                 margin-top: 16px;
@@ -603,13 +640,13 @@ header {
 
                 .title {
                     float: left;
-                    width: 83px;
+                    width: 73px;
                     height: 20px;
                     padding-left: 20px;
                 }
 
                 .list {
-                    width: 433px;
+                    width: 300px;
                     float: left;
                     padding-bottom: 16px;
                     border-bottom: 1px dashed #afacb1;
@@ -618,7 +655,7 @@ header {
                         display: inline-block;
                         margin-right: 16px;
                         font-size: 12px;
-                        line-height: 22px;
+                        line-height: 20px;
                     }
                 }
             }
@@ -626,7 +663,6 @@ header {
             .right-list {
                 float: right;
                 width: 190px;
-                
 
                 h6 {
                     padding: 16px 0 12px;
@@ -634,18 +670,44 @@ header {
                 }
 
                 .tag {
-                    margin-bottom:25px;
+                    margin-bottom: 25px;
+
                     a {
                         display: inline-block;
                         margin-right: 16px;
                         font-size: 12px;
                     }
                 }
-                .samll-img{
+
+                .samll-img {
                     width: 190px;
-                    height:260px;
+                    height: 260px;
                 }
             }
+        }
+
+
+
+        .item-title-top,
+        .item-title-middle,
+        .item-title-top {
+            .banner-sub-menu {
+                width: 750px;
+
+                .left-list {
+                    float: left;
+
+                    .title {
+                        width: 83px;
+                    }
+
+                    .list {
+                        width: 433px;
+                    }
+                }
+
+            }
+
         }
 
 
@@ -656,4 +718,117 @@ header {
 
 body {
     height: 2000px
+}
+
+.selection {
+    h3 {
+        font-size: 24px;
+        color: #333;
+        font-weight: 700;
+        margin: 44px 0 16px 0;
+    }
+
+    .layui-container {
+        padding: 0 !important;
+        margin: 0 !important;
+
+        a {
+            display: inline-block;
+            height: 200px;
+            width: 193px;
+            overflow: hidden;
+            position: relative;
+
+            &:hover {
+                &>img {
+                    top: -1.5%;
+                    left: -1.5%;
+                    transform: scale(1.05);
+                    transition: transform 1s, -webkit-transform 1s;
+
+                }
+            }
+        }
+    }
+
+}
+
+.group {
+    ul {
+        margin-top: 60px;
+
+        li {
+            margin-left: 10px;
+            float: left;
+            position: relative;
+
+            &:hover {
+                &>img {
+                    top: -1.5%;
+                    left: -1.5%;
+                    transform: scale(1.05);
+                    transition: transform 1s, -webkit-transform 1s;
+
+                }
+            }
+            .represent-a{
+                position: absolute;
+                left: 50%;
+                top: 30%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                width: 100%;
+                .describe {
+                    padding: 16px 0 5px 0;
+                    height: 30px;
+                    overflow: hidden;
+                    font-size: 24px;
+                }
+
+                .describ {
+                    padding-top: 5px;
+                    font-size: 14px;
+                }
+            }
+
+            &:nth-of-type(1){
+                
+            margin-left: 0;
+
+            .title {
+                position: absolute;
+                background: #fff;
+                left: 50%;
+                top: 30%;
+                transform: translate(-50%, -50%);
+                padding: 10px;
+                width: 200px;
+                height: 90px;
+
+                .represent {
+                    height: 100%;
+                    padding: 0 20px;
+                    border: 1px solid #ececec;
+                    text-align: center;
+                    .describe {
+                        padding: 16px 0 5px 0;
+                        border-bottom: 1px dashed #dfd3e9;
+                        margin-bottom: 0;
+                        width: 100%;
+                        height: 30px;
+                        overflow: hidden;
+                        font-size: 24px;
+                    }
+
+                    .describ {
+                        padding-top: 5px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+            }
+        }
+
+
 }
