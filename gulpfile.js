@@ -159,7 +159,7 @@ gulp.task('serve', ['index', 'sass', 'js', 'image', 'layout', 'html'], function 
       baseDir: './dist',
       index: './index.html'
     },
-    port: 8888
+    port: 8080
   });
 
   gulp.watch('./index.html', ['index']);

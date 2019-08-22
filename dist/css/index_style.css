@@ -461,7 +461,7 @@ header {
           width: 433px; }
 
 body {
-  height: 2000px; }
+  height: 3000px; }
 
 .selection h3 {
   font-size: 24px;
@@ -545,3 +545,115 @@ body {
           .group ul li:nth-of-type(1) .title .represent .describ {
             padding-top: 5px;
             font-size: 14px; }
+
+.scroll-image {
+  margin-top: 50px; }
+  .scroll-image .w {
+    position: relative; }
+  .scroll-image .scroll-detail {
+    height: 770px;
+    position: relative; }
+    .scroll-image .scroll-detail li {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      overflow: hidden; }
+    .scroll-image .scroll-detail .scroll-index {
+      width: 100%;
+      height: 400px;
+      overflow: hidden; }
+      .scroll-image .scroll-detail .scroll-index:hover img {
+        top: -1.5%;
+        left: -1.5%;
+        -webkit-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+                transform: scale(1.05);
+        transition: transform 1s, -webkit-transform 1s; }
+    .scroll-image .scroll-detail .goods-list {
+      margin-top: 20px;
+      height: 350px; }
+      .scroll-image .scroll-detail .goods-list .goods {
+        width: 285px;
+        height: 350px;
+        float: left;
+        margin-right: 20px;
+        text-align: center; }
+        .scroll-image .scroll-detail .goods-list .goods a {
+          display: block;
+          overflow: hidden; }
+        .scroll-image .scroll-detail .goods-list .goods:nth-of-type(4) {
+          margin-right: 0; }
+        .scroll-image .scroll-detail .goods-list .goods:hover img {
+          top: -1.5%;
+          left: -1.5%;
+          -webkit-transform: scale(1.05);
+              -ms-transform: scale(1.05);
+                  transform: scale(1.05);
+          transition: transform 1s, -webkit-transform 1s; }
+        .scroll-image .scroll-detail .goods-list .goods .name {
+          padding: 18px 0 3px 0;
+          font-size: 14px; }
+        .scroll-image .scroll-detail .goods-list .goods .price {
+          font-size: 14px;
+          color: #e62318; }
+  .scroll-image .scroll-detail-btn {
+    height: 34px;
+    position: absolute;
+    bottom: 370px;
+    right: 0;
+    z-index: 200; }
+    .scroll-image .scroll-detail-btn .btn {
+      text-align: center;
+      line-height: 34px;
+      width: 90px;
+      height: 34px;
+      float: left;
+      background-color: #000;
+      opacity: .6;
+      color: #fff;
+      font-size: 14px; }
+    .scroll-image .scroll-detail-btn .current {
+      background-color: #fff;
+      opacity: 1;
+      color: #333; }
+  .scroll-image .list {
+    position: absolute;
+    width: 225px;
+    height: 300px;
+    top: 50px;
+    left: 50px;
+    background: #fff;
+    z-index: 200; }
+    .scroll-image .list .name {
+      text-align: center;
+      margin-top: 29px; }
+    .scroll-image .list .china-name {
+      color: #333;
+      font-size: 40px;
+      line-height: 48px;
+      font-family: '微软雅黑'; }
+    .scroll-image .list .english-name {
+      color: black;
+      font-size: 12px;
+      line-height: 18px;
+      font-family: '微软雅黑';
+      letter-spacing: 3px; }
+      .scroll-image .list .english-name a:hover {
+        color: #999 !important; }
+    .scroll-image .list .type {
+      padding: 31px 15px 0 20px; }
+      .scroll-image .list .type a {
+        display: block;
+        margin: 0 5px 5px 0;
+        width: 90px;
+        height: 25px;
+        color: #333;
+        font-size: 14px;
+        line-height: 25px;
+        text-align: center;
+        background: #f5f5f5;
+        float: left; }
+        .scroll-image .list .type a:hover {
+          background: #e62318;
+          color: #fff !important; }
