@@ -1,0 +1,177 @@
+.w {
+    width: 1190px;
+}
+
+.register-header {
+    height: 70px;
+    background-color: #fff;
+    line-height: 0;
+    padding-top: 15px;
+
+
+    .left {
+        float: left;
+
+        .logo {
+            position: relative;
+            display: inline-block;
+            width: 176px;
+            top: -10px;
+        }
+    }
+
+    .right {
+        float: right;
+        padding-top: 40px;
+        color: black;
+    }
+}
+
+
+.main {
+    height: 458px;
+    background: #e62318;
+    padding: 72px 0;
+    position: relative;
+
+    .img {
+        display: block;
+        width: 620px;
+        height: 454px;
+        margin-left: 50px;
+        float: left;
+    }
+
+    aside {
+        .login-box {
+            float: left;
+            margin-left: 100px;
+            width: 306px;
+            min-height: 371px;
+            background: #fff;
+            padding: 22px 27px 20px 27px;
+
+            h2 {
+                text-align: center;
+                font-weight: 400;
+                line-height: 45px;
+                border-bottom: 1px solid #eee;
+            }
+
+            input {
+                height: 40px;
+                width: 85%;
+                margin: 0;
+                float: right;
+                border: none;
+            }
+
+            .username {
+                margin-top: 35px;
+            }
+
+            .username,
+            .password {
+                width: 100%;
+                border: 1px solid #ddd;
+                height: 40px;
+                margin-top: 30px;
+
+                i {
+                    width: 19px;
+                    height: 19px;
+                    display: inline-block;
+                    margin: 10px 10px;
+                    background: url(/dist/images/allPuzzle.png)
+                }
+            }
+
+            .username>i {
+                background-position: 0 -30px;
+            }
+
+            .password>i {
+                background-position: -21px -30px;
+            }
+
+            p {
+                margin-top: 5px;
+                text-align: right;
+                cursor: pointer;
+            }
+
+
+            #btn {
+                display: block;
+                width: 306px;
+                height: 42px;
+                line-height: 42px;
+                background-color: #e62318;
+                text-align: center;
+                font-size: 16px;
+                font-weight: 700;
+                color: #fff;
+                padding: 0;
+                border: 0;
+                border-radius: 3px;
+                margin: 24px 0;
+                cursor: pointer;
+            }
+
+
+            .other-login {
+
+                border-top: 1px solid #eee;
+                padding-top: 20px;
+                margin-top: 45px;
+                a {
+                    i {
+                        margin: 0 5px;
+                        vertical-align: middle;
+                        display: inline-block;
+                        width: 28px;
+                        height: 28px;
+                        background: url(/dist/images/allPuzzle.png);
+
+                    }
+
+                    span {
+                        border-right: solid 1px #d5d5d5;
+                        padding-right: 10px;
+                    }
+
+
+                    &:nth-of-type(1)>i {
+                        background-position: -73px -172px
+                    }
+    
+                    &:nth-of-type(2)>i {
+                        background-position: -73px -80px
+                    }
+    
+                    &:nth-of-type(3)>i {
+                        background-position: -73px -108px;
+                    }
+                    a:nth-of-type(3)>span {
+                        border: none;
+                    }
+    
+                }
+
+              
+
+              
+            }
+        }
+    }
+
+}
+
+
+.footer-icon {
+    margin-top: 0;
+
+    a {
+        width: 148px;
+    }
+}
