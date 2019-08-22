@@ -47,7 +47,10 @@ function swallowError(error) {
 //       stream: true
 //     }));
 // })
-
+gulp.task('copy', function () {
+  return gulp.src('./src/js/layui/*.*')
+  .pipe(gulp.dest('./dist/js/layui'))
+})
 
 
 gulp.task('sass', function () {
@@ -152,7 +155,7 @@ gulp.task('default', ['delete'], function () {
   gulp.start('serve');
 })
 
-gulp.task('serve', ['index', 'sass', 'js', 'image', 'layout', 'html'], function () {
+gulp.task('serve', ['index', 'sass', 'js', 'image', 'layout','copy', 'html'], function () {
   browserSync.init({
     files: ['**'],
     server: {
