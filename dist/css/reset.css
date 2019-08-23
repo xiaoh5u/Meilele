@@ -59,8 +59,7 @@ input[type="submit"] {
 .sl {
   white-space: nowrap;
   overflow: hidden;
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis; }
+  text-overflow: ellipsis; }
 
 .w {
   width: 1200px;

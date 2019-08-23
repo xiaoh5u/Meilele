@@ -56,16 +56,16 @@ gulp.task('sass', function () {
   return gulp.src('./src/sass/*.{scss,sass}')
     .pipe(sass()) // 通过sass插件将sass编译为css，如果需要编译less，则改用less插件
     .on('error', swallowError)//报错后警告不退出
-    .pipe(autoprefixer({
-      overrideBrowserslist: ['last 20 versions', 'Android >= 4.0'],
-    }))
-    .pipe(sourcemaps.init())
-    .pipe(gulp.dest('./dist/css'))
-    .pipe(cleancss())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(sourcemaps.write('.'))
+    // .pipe(autoprefixer({
+    //   overrideBrowserslist: ['last 20 versions', 'Android >= 4.0'],
+    // }))
+    // .pipe(sourcemaps.init())
+    // .pipe(gulp.dest('./dist/css'))
+    // .pipe(cleancss())
+    // .pipe(rename({
+    //   suffix: '.min'
+    // }))
+    // .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist/css'))
     .pipe(reload({
       stream: true
@@ -76,16 +76,16 @@ gulp.task('sass', function () {
 gulp.task('js', function () {
   return gulp.src('src/js/*.js')
     .pipe(sourcemaps.init())
-    .pipe(babel({ // 通过babel插件将ES6转成ES5
-      presets: ['es2015']
-    }))
-    .pipe(gulp.dest('./dist/js'))
-    .pipe(uglify()) // 丑化js代码
-    .pipe(rename({ // 重命名
-      // prefix: 'bonjour-',  // 添加前缀
-      suffix: '.min' // 添加后缀
-    }))
-    .pipe(sourcemaps.write('.'))
+    // .pipe(babel({ // 通过babel插件将ES6转成ES5
+    //   presets: ['es2015']
+    // }))
+    // .pipe(gulp.dest('./dist/js'))
+    // .pipe(uglify()) // 丑化js代码
+    // .pipe(rename({ // 重命名
+    //   // prefix: 'bonjour-',  // 添加前缀
+    //   suffix: '.min' // 添加后缀
+    // }))
+    // .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist/js'))
     .pipe(reload({
       stream: true
@@ -94,28 +94,28 @@ gulp.task('js', function () {
 
 gulp.task('image', function () {
   return gulp.src('src/images/*')
-    .pipe(imagemin([
-      imagemin.gifsicle({
-        interlaced: true
-      }),
-      imagemin.jpegtran({
-        progressive: true
-      }),
-      imagemin.optipng({
-        optimizationLevel: 5
-      }),
-      imagemin.svgo({
-        plugins: [{
-            removeViewBox: true
-          },
-          {
-            cleanupIDs: false
-          }
-        ]
-      })
-    ], {
-      verbose: true
-    }))
+    // .pipe(imagemin([
+    //   imagemin.gifsicle({
+    //     interlaced: true
+    //   }),
+    //   imagemin.jpegtran({
+    //     progressive: true
+    //   }),
+    //   imagemin.optipng({
+    //     optimizationLevel: 5
+    //   }),
+    //   imagemin.svgo({
+    //     plugins: [{
+    //         removeViewBox: true
+    //       },
+    //       {
+    //         cleanupIDs: false
+    //       }
+    //     ]
+    //   })
+    // ], {
+    //   verbose: true
+    // }))
     .pipe(gulp.dest('./dist/images'));
 })
 
@@ -160,7 +160,7 @@ gulp.task('serve', ['index', 'sass', 'js', 'image', 'layout','copy', 'html'], fu
       baseDir: './dist',
       index: './index.html'
     },
-    port: 8080
+    port: 0996
   });
 
   gulp.watch('./index.html', ['index']);

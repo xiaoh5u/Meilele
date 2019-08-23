@@ -1,61 +1,72 @@
-//判断用户登录状态
-var user = sessionStorage.getItem('userName')
-if (user) {
-    $('.header-left .register').css({
-        display: 'none'
-    })
-    $('.header-left .login').css({
-        display: 'none'
-    })
-
-    $('.header-left .username').css({
-        display: 'inline-block'
-    })
-    $('.header-left .user_out').css({
-        display: 'inline-block'
-    })
-    $('.header-left .username').html(user)
-}
-
-$('.header-left .user_out').on('click', function () {
-    sessionStorage.removeItem('userName')
-    location.reload()
-})
 
 
-tel_scroll()
-//头部电话滚动函数
-function tel_scroll() {
-    var num = -28;
-    var sum = 0;
-    setInterval(() => {
-        if (sum === -84) {
-            sum = 28;
-        }
-        sum += num;
-        $('.tel-scroll').animate({
-            top: sum,
+
+//折叠函数
+// function zhedie(n) {
+//     if (n % 2 == 0) {
+//         $(this).find('span').html('收起')
+//         $(this).find('i').attr('class', 'iconfont icon-icon--')
+//         console.log($(this))
+//         $(this).parents('dd').find('.shell').css({
+//             height: 'auto'
+//         })
+//     }
+//     if (n % 2 == 1) {
+//         $(this).find('span').html('更多')
+//         $(this).find('i').attr('class', 'iconfont icon-icon--1')
+//         $(this).find('.shell').css({
+//             height: '26px'
+//         })
+//     }
+// }
+
+
+
+
+var m = 1;
+$('.goods_classify .more>a').on('click', function () {
+    m++
+    if (m % 2 == 0) {
+        $(this).find('span').html('收起')
+        $(this).find('i').attr('class', 'iconfont icon-icon--')
+        $(this).parents('dd').find('.shell').css({
+            height: 'auto'
         })
-    }, 2500);
-}
-
-
+    }
+    if (m % 2 == 1) {
+        $(this).find('span').html('更多')
+        $(this).find('i').attr('class', 'iconfont icon-icon--1')
+        $(this).parents('dd').find('.shell').css({
+            height: '26px'
+        })
+    }
+})
 var n = 1;
-$('.classify .more>a').on('click', function () {
+$('.goods_style .more>a').on('click', function () {
     n++
-
     if (n % 2 == 0) {
         $(this).find('span').html('收起')
         $(this).find('i').attr('class', 'iconfont icon-icon--')
-        $('.shell').animate({
-            height:'50px'
-        },'fast')
+        $(this).parents('dd').find('.shell').css({
+            height: 'auto'
+        })
     }
     if (n % 2 == 1) {
         $(this).find('span').html('更多')
         $(this).find('i').attr('class', 'iconfont icon-icon--1')
-        $('.shell').animate({
-            height:'26px'
-        },'fast')
+        $(this).parents('dd').find('.shell').css({
+            height: '26px'
+        })
     }
+
+})
+
+
+
+$('.list_goods li').on('mouseenter', function () {
+    $(this).css({
+        'z-index': 2
+    }).siblings().css({
+        'z-index': 1
+    })
 })

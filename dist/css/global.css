@@ -34,8 +34,6 @@ header {
       background: url(../../dist/images/nav.png) no-repeat;
       position: relative;
       top: -3px;
-      -webkit-transition: .2s ease-in-out;
-      -o-transition: .2s ease-in-out;
       transition: .2s ease-in-out; }
     header .header-right li {
       float: left;
@@ -48,9 +46,7 @@ header {
     header .header-right li:hover:hover > a {
       color: #e62318; }
     header .header-right li:hover i {
-      -webkit-transform: rotate(-180deg);
-          -ms-transform: rotate(-180deg);
-              transform: rotate(-180deg); }
+      transform: rotate(-180deg); }
     header .header-right li:hover .sub-menu {
       border-color: #eaeaea;
       display: block; }

@@ -35,8 +35,6 @@ header {
       background: url(../../dist/images/nav.png) no-repeat;
       position: relative;
       top: -3px;
-      -webkit-transition: .2s ease-in-out;
-      -o-transition: .2s ease-in-out;
       transition: .2s ease-in-out; }
     header .header-right li {
       float: left;
@@ -49,9 +47,7 @@ header {
     header .header-right li:hover:hover > a {
       color: #e62318; }
     header .header-right li:hover i {
-      -webkit-transform: rotate(-180deg);
-          -ms-transform: rotate(-180deg);
-              transform: rotate(-180deg); }
+      transform: rotate(-180deg); }
     header .header-right li:hover .sub-menu {
       border-color: #eaeaea;
       display: block; }
@@ -274,8 +270,6 @@ header {
       padding-left: 20px;
       color: #c8c8c8; }
       .banner .banner-nav li:hover {
-        -webkit-transition: .3s;
-        -o-transition: .3s;
         transition: .3s;
         background-color: rgba(255, 255, 255, 0.9);
         color: #333;
@@ -398,9 +392,7 @@ body {
     .selection .layui-container a:hover > img {
       top: -1.5%;
       left: -1.5%;
-      -webkit-transform: scale(1.05);
-          -ms-transform: scale(1.05);
-              transform: scale(1.05);
+      transform: scale(1.05);
       transition: transform 1s, -webkit-transform 1s; }
 
 .group ul {
@@ -412,17 +404,13 @@ body {
     .group ul li:hover > img {
       top: -1.5%;
       left: -1.5%;
-      -webkit-transform: scale(1.05);
-          -ms-transform: scale(1.05);
-              transform: scale(1.05);
+      transform: scale(1.05);
       transition: transform 1s, -webkit-transform 1s; }
     .group ul li .represent-a {
       position: absolute;
       left: 50%;
       top: 30%;
-      -webkit-transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       text-align: center;
       width: 100%; }
       .group ul li .represent-a .describe {
@@ -440,9 +428,7 @@ body {
         background: #fff;
         left: 50%;
         top: 30%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
         padding: 10px;
         width: 200px;
         height: 90px; }
@@ -483,9 +469,7 @@ body {
       .scroll-image .scroll-detail .scroll-index:hover img {
         top: -1.5%;
         left: -1.5%;
-        -webkit-transform: scale(1.05);
-            -ms-transform: scale(1.05);
-                transform: scale(1.05);
+        transform: scale(1.05);
         transition: transform 1s, -webkit-transform 1s; }
     .scroll-image .scroll-detail .goods-list {
       margin-top: 20px;
@@ -504,9 +488,7 @@ body {
         .scroll-image .scroll-detail .goods-list .goods:hover img {
           top: -1.5%;
           left: -1.5%;
-          -webkit-transform: scale(1.05);
-              -ms-transform: scale(1.05);
-                  transform: scale(1.05);
+          transform: scale(1.05);
           transition: transform 1s, -webkit-transform 1s; }
         .scroll-image .scroll-detail .goods-list .goods .name {
           padding: 18px 0 3px 0;

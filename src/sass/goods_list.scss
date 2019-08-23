@@ -127,20 +127,23 @@ $global-color: #e62318;
         border: 1px solid #eaeaea;
         background-color: #f5f5f5;
     }
-   .title{
-        dd{
+
+    .title {
+        dd {
             width: 1159px;
-            .tips{
+
+            .tips {
                 font-size: 14px;
                 margin-right: 10px;
             }
         }
     }
+
     dl+dl {
         border-top: 0;
     }
 
-    
+
 
     dt {
         width: 107px;
@@ -168,16 +171,231 @@ $global-color: #e62318;
             }
         }
 
-        .shell{
-            overflow:hidden;
+        .shell {
+            overflow: hidden;
             height: 26px;
         }
 
-        .more{
-           position: relative;
-           top:-10px;
+        .more {
+            position: relative;
+            top: -10px;
         }
 
-        
+
     }
+
+    .goods_price {
+        .list {
+            width: 510px;
+        }
+
+        input {
+            display: inline-block;
+            height: auto;
+            width: 58px;
+        }
+
+        .pirce_comfirm {
+            border: 1px solid #dbdbdb;
+            height: 22px;
+            margin-left: 5px;
+            background: #f4f4f4;
+            cursor: pointer;
+            color: #67544e;
+        }
+    }
+}
+
+
+.goods_screen {
+    margin-top: 20px;
+
+    .w {
+        width: 1180px;
+        height: 25px;
+        line-height: 24px;
+        padding: 6px 10px 5px;
+        border: solid 1px #e6e6e6;
+        background: #f3f3f3;
+    }
+
+    .screen_left {
+        float: left;
+
+        a {
+            display: inline-block;
+            height: 22px;
+            padding: 0 9px;
+            border: 1px solid #e6e6e6;
+            border-left: none;
+            text-align: center;
+            color: #666;
+            line-height: 22px;
+
+            &:hover {
+                background-color: $global-color;
+                color: #f0f0f0;
+            }
+        }
+    }
+
+    .screen_right {
+        float: right;
+
+        .goods_total {
+            float: left;
+        }
+
+        .goods_page {
+            float: left;
+            padding-left: 10px;
+
+            a {
+                display: inline-block;
+                width: 23px;
+                height: 21px;
+                vertical-align: middle;
+                background: url(/dist/images/listicon.png)
+            }
+
+            .prev {
+                background-position: -21px -192px;
+                // background-position: -21px -213px;
+            }
+
+            .next {
+                background-position: -46px -192px;
+                // background-position: -45px -213px;
+            }
+        }
+
+        .goods_num {
+            color: $global-color;
+        }
+    }
+
+
+}
+
+
+.list_goods {
+
+
+    .list {
+        li{
+            width: 280px;
+            height: 300px;
+              float: left;
+            position: relative;
+            margin-top: 15px;
+            margin-right: 20px;
+        }
+        .box {
+          
+            padding: 3px;
+            border: 2px solid #f5f5f5;
+            background-color: #fff;
+            position: absolute;
+
+            &:hover {
+                height: 320px;
+                border: 2px solid $global-color;
+
+                .option {
+                    display: block;
+                }
+            }
+        }
+
+        .small_img {
+            height: 177px;
+            background-color: orange;
+        }
+
+        .price {
+            padding: 10px 0 5px 0;
+            font-family: Arial;
+            font-weight: 400;
+            color: $global-color;
+
+            span {
+                font-size: 20px;
+            }
+        }
+
+        .name {
+            height: 38px;
+            line-height: 20px;
+            color: #333;
+            overflow: hidden;
+        }
+
+        .sale {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .option {
+            padding:4px 0;
+            display: none;
+
+            a {
+                padding: 0px 14px;
+                border: 1px solid #dedede;
+                line-height: 26px;
+                float: left;
+                position: relative;
+
+                &:hover {
+                    border-color: $global-color;
+                }
+            }
+
+            i {
+                display: inline-block;
+                width: 13px;
+                height: 14px;
+                background: url(/dist/images/listicon.png);
+
+            }
+
+            .comparison {
+                i {
+                    background-position: -1px -2px;
+                }
+
+                &:hover i {
+                    background-position: -1px -26px;
+                }
+
+            }
+
+
+
+            .like {
+                i {
+                    width: 17px;
+                    height: 13px;
+                    background-position: -34px -3px;
+                }
+
+                &:hover i {
+                    background-position: -34px -27px;
+                }
+            }
+
+            .addCar {
+                i {
+                    width: 16px;
+                    height: 15px;
+                    background-position: -72px -1px;
+                }
+            }
+
+
+
+
+        }
+    }
+
 }
