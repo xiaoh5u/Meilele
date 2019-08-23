@@ -10,7 +10,7 @@ $('#btn').on('click', function () {
         beforeSend: (function () {
             layui.use('layer', function(){
                 var layer = layui.layer;
-                var index = layer.load();
+                var index = layer.load(1);
               });    
         })
     }).then(({
@@ -20,6 +20,7 @@ $('#btn').on('click', function () {
     }) => {
         layer.close(layer.index);
         if (code) {
+            sessionStorage.setItem(`userName`,`${$('#username').val()}`)
             layer.msg(msg, {
                 icon: 1,
                 time: 2000

@@ -83,7 +83,7 @@ $('#button').on('click', function () {
                 telephone: $('#telephone').val()
             },
             beforeSend: function beforeSend() {
-                var index = layer.load();
+                var index = layer.load(1);
             }
 
         }).then(function (_ref) {

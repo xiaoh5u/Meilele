@@ -96,7 +96,7 @@ $('#button').on('click', function () {
                 telephone: $('#telephone').val()
             },
             beforeSend: (function () {
-                    var index = layer.load();
+                    var index = layer.load(1);
             })
 
         }).then(({

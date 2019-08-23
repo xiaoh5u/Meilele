@@ -1,5 +1,29 @@
 'use strict';
 
+//判断用户登录状态
+var user = sessionStorage.getItem('userName');
+if (user) {
+    $('.header-left .register').css({
+        display: 'none'
+    });
+    $('.header-left .login').css({
+        display: 'none'
+    });
+
+    $('.header-left .username').css({
+        display: 'inline-block'
+    });
+    $('.header-left .user_out').css({
+        display: 'inline-block'
+    });
+    $('.header-left .username').html(user);
+}
+
+$('.header-left .user_out').on('click', function () {
+    sessionStorage.removeItem('userName');
+    location.reload();
+});
+
 //滚动详情
 
 
