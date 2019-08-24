@@ -22,6 +22,7 @@ header {
       header .header-left .username:hover {
         color: #e62318; }
     header .header-left .user_out {
+      color: #e62318;
       display: none; }
     header .header-left .login {
       margin: 0 7px; }

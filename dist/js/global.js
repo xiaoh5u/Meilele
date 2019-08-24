@@ -1,3 +1,9 @@
+layui.use('layer', function(){
+    var layer = layui.layer;
+    
+  });   
+
+
 //判断用户登录状态
 var user = sessionStorage.getItem('userName')
 if (user) {

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .search {
   height: 112px; }
   .search .w {
@@ -114,6 +115,24 @@
     .classify dd .more {
       position: relative;
       top: -10px; }
+  .classify .selected {
+    display: none; }
+    .classify .selected .current {
+      height: 16px;
+      line-height: 16px;
+      padding: 1px 8px;
+      border: 1px solid #e62318;
+      margin: 0 5px 1px 0;
+      color: #e62318;
+      float: left; }
+      .classify .selected .current a {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        overflow: hidden;
+        background: url("/dist/images/listicon.png") -69px -237px no-repeat;
+        margin-top: 5px;
+        margin-left: 8px; }
   .classify .goods_price .list {
     width: 510px; }
   .classify .goods_price input {
@@ -177,7 +196,8 @@
   float: left;
   position: relative;
   margin-top: 15px;
-  margin-right: 20px; }
+  margin-right: 20px;
+  cursor: pointer; }
 
 .list_goods .list .box {
   padding: 3px;
@@ -203,6 +223,7 @@
     font-size: 20px; }
 
 .list_goods .list .name {
+  display: block;
   height: 38px;
   line-height: 20px;
   color: #333;
@@ -242,3 +263,53 @@
     width: 16px;
     height: 15px;
     background-position: -72px -1px; }
+
+.p-list {
+  text-align: center;
+  margin-top: 50px; }
+  .p-list .p-disabled {
+    color: #999 !important;
+    cursor: default;
+    height: 36px;
+    padding: 0 15px;
+    text-align: center;
+    line-height: 36px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    font-size: 15px; }
+  .p-list .p-item {
+    height: 36px;
+    padding: 0 15px;
+    text-align: center;
+    line-height: 36px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    font-size: 15px; }
+  .p-list .p-next {
+    margin-right: 17px;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 14px; }
+  .p-list .p-cur {
+    color: #fff;
+    background: #e62318; }
+  .p-list .p-input {
+    width: 32px;
+    height: 20px;
+    line-height: 20px;
+    padding: 7px 0;
+    border: 1px solid #ddd;
+    text-align: center;
+    margin: 0;
+    outline: 0; }
+  .p-list .p-enter {
+    height: 34px;
+    line-height: 32px;
+    width: 64px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+    font-size: 14px;
+    font-family: 宋体;
+    color: #63544f;
+    text-align: center; }
