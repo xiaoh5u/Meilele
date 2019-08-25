@@ -139,6 +139,9 @@ body {
             height: 311px;
             background-color: orange;
             position: relative;
+            img{
+                height: 311px;
+            }
 
             .shadow {
                 width: 200px;
@@ -187,12 +190,23 @@ body {
                 width: 30px;
                 height: 57px;
                 position: absolute;
-                top: 12px;
+                top: 11px;
                 cursor: pointer;
                 display: none;
-                z-index: 50;
+                z-index: 5000;
+                background: url(/dist/images/goods.png);
+
+            }   
+
+            .prev {
+                background-position: 0 -943px;
+                left: 0;
             }
 
+            .next {
+                background-position: -30px -943px;
+                right: 0;
+            }
 
 
             .goods_album_stage {
@@ -202,15 +216,17 @@ body {
                 left: 0px;
 
                 .active {
-                    border: 2px solid $global-color;
+                    border: 1px solid $global-color;
                 }
 
                 li {
                     width: 86px;
                     height: 57px;
                     float: left;
-                    margin: 0 2px;
-                    border: 2px solid transparent;
+                    margin: 0 3px;
+                    border: 1px solid transparent;
+                    cursor: pointer;
+                    overflow: hidden;
                 }
 
             }
@@ -330,7 +346,7 @@ body {
 
                     i {
                         position: absolute;
-                        cursor: pointer; 
+                        cursor: pointer;
                     }
 
                     .icon-jia {

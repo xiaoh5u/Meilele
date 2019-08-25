@@ -26,20 +26,20 @@ $('.goods_display .top').on('mousemove', function (e) {
     oTop = maxTop;
   }
 
-  var bigImgWidth = parseInt($('.bigImg').css('width'))
-  var bigShadowWidth = parseInt($('.bigShadow').css('width'))
-  var shadowWidth = parseInt($('.shadow').css('width'))
-  var smallImgWidth = $('.smallImg')[0].offsetWidth;
+  $bigImgWidth = parseInt($('.bigImg').css('width'))
+  $bigShadowWidth = parseInt($('.bigShadow').css('width'))
+  $shadowWidth = parseInt($('.shadow').css('width'))
+  $smallImgWidth = $('.smallImg')[0].offsetWidth;
 
-  var scale = (bigImgWidth - bigShadowWidth) / (smallImgWidth - shadowWidth)
+  $scale = ($bigImgWidth - $bigShadowWidth) / ($smallImgWidth - $shadowWidth)
   $('.shadow').css({
     'left': `${oLeft}px`,
     'top': `${oTop}px`
   })
 
   $('.bigImg').css({
-    'top': -oTop * scale + "px",
-    'left': -oLeft * scale + 'px',
+    'top': -oTop * $scale + "px",
+    'left': -oLeft * $scale + 'px',
 
   })
 
@@ -56,6 +56,10 @@ $('.goods_display .top').mouseleave(function () {
 //放大镜部分未完成
 $('.goods_album_stage li').on('mouseenter', function () {
   $(this).addClass('active').siblings().removeClass('active')
+  $hoverSrc = $(this).find('img').attr('src')
+
+  $('.top .smallImg').attr('src', $hoverSrc)
+  $('.bigShadow .bigImg').attr('src', $hoverSrc)
 })
 
 
@@ -118,7 +122,7 @@ $('.click .reduce').on('click', function () {
 
 
 
-$('.click .num').on('change',function(){
+$('.click .num').on('change', function () {
   $num = $('.click .num').val() * 1
   if ($num > 999) {
     $num = 999

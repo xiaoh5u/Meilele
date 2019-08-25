@@ -91,6 +91,8 @@ body {
     height: 311px;
     background-color: orange;
     position: relative; }
+    .goods_info .goods_display .top img {
+      height: 311px; }
     .goods_info .goods_display .top .shadow {
       width: 200px;
       height: 200px;
@@ -124,23 +126,32 @@ body {
       width: 30px;
       height: 57px;
       position: absolute;
-      top: 12px;
+      top: 11px;
       cursor: pointer;
       display: none;
-      z-index: 50; }
+      z-index: 5000;
+      background: url(/dist/images/goods.png); }
+    .goods_info .goods_display .hidden .prev {
+      background-position: 0 -943px;
+      left: 0; }
+    .goods_info .goods_display .hidden .next {
+      background-position: -30px -943px;
+      right: 0; }
     .goods_info .goods_display .hidden .goods_album_stage {
       margin-top: 10px;
       width: 5000px;
       position: relative;
       left: 0px; }
       .goods_info .goods_display .hidden .goods_album_stage .active {
-        border: 2px solid #e62318; }
+        border: 1px solid #e62318; }
       .goods_info .goods_display .hidden .goods_album_stage li {
         width: 86px;
         height: 57px;
         float: left;
-        margin: 0 2px;
-        border: 2px solid transparent; }
+        margin: 0 3px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        overflow: hidden; }
 
 .goods_info .good_info_panel {
   float: left;
