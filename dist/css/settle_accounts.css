@@ -20,5 +20,98 @@
       color: black; }
   .settleAccounts-header .right {
     float: right;
-    padding-top: 40px;
-    color: black; }
+    width: 520px;
+    height: 44px;
+    background: url(/dist/images/flow_step.png) 0 -45px no-repeat;
+    margin-top: 9px; }
+
+.address .title {
+  height: 37px;
+  line-height: 37px; }
+  .address .title span {
+    float: left;
+    font-size: 20px; }
+  .address .title a {
+    float: right;
+    color: #e62318; }
+    .address .title a i {
+      font-size: 14px; }
+
+.address .address-box {
+  padding: 4px;
+  border: 1px solid #ddd; }
+  .address .address-box .addAddress {
+    padding: 59px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #e62318;
+    cursor: pointer; }
+    .address .address-box .addAddress i {
+      font-size: 16px;
+      margin: 2px; }
+
+.address .info-input .shadow {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: .6;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000; }
+
+.address .info-input .address-input {
+  width: 910px;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000001;
+  border: 5px solid rgba(200, 200, 200, 0.5); }
+  .address .info-input .address-input .head {
+    background: #f1f1f1;
+    padding: 0 15px;
+    font-size: 16px;
+    height: 37px;
+    line-height: 37px; }
+    .address .info-input .address-input .head a {
+      width: 20px;
+      height: 20px;
+      float: right; }
+      .address .info-input .address-input .head a i {
+        font-size: 20px; }
+  .address .info-input .address-input .address-input-table td {
+    padding: 15px 0; }
+  .address .info-input .address-input .address-input-table .label {
+    width: 120px;
+    text-align: right; }
+  .address .info-input .address-input .address-input-table .must::before {
+    content: '*';
+    color: #e62318; }
+  .address .info-input .address-input .address-input-table .value input {
+    height: 24px;
+    line-height: 20px;
+    color: #555;
+    border: 1px solid #ddd;
+    padding: 0 3px; }
+  .address .info-input .address-input .address-input-table .value .btn {
+    float: left;
+    height: 20px;
+    padding-left: 10px;
+    color: #fff;
+    font-weight: 700;
+    background: url(/dist/images/bg2.png) 0 -140px no-repeat;
+    cursor: pointer;
+    padding-top: 5px;
+    line-height: 17px; }
+    .address .info-input .address-input .address-input-table .value .btn .rr {
+      float: right;
+      width: 10px;
+      background: url(/dist/images/bg2.png) -299px -140px no-repeat;
+      height: 25px;
+      margin-top: -5px; }
+  .address .info-input .address-input .address-input-table tr:nth-of-type(3) input {
+    width: 320px; }
