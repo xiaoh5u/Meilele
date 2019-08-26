@@ -95,76 +95,74 @@
 .shoppingCar .label-active {
   background: url(/dist/images/flow_cart_bg_new.png) no-repeat 0 0; }
 
-.shoppingCar .goods_list {
-  margin-top: 30px; }
-  .shoppingCar .goods_list .info {
-    padding: 25px 0;
-    height: 80px;
-    border: solid 1px #ddd;
-    border-bottom: 0;
-    background-color: #fefaf1; }
-    .shoppingCar .goods_list .info div {
-      float: left; }
-    .shoppingCar .goods_list .info .input-checked {
-      position: relative;
-      width: 73px;
-      height: 23px; }
-    .shoppingCar .goods_list .info .smallImg {
-      width: 112px;
-      padding: 1px;
-      background: #fff;
-      border: 1px solid #ddd;
-      vertical-align: middle; }
-    .shoppingCar .goods_list .info .goods-name {
-      width: 185px;
-      padding-left: 15px;
-      text-align: left; }
-    .shoppingCar .goods_list .info .goods-model {
-      width: 120px;
-      height: 36px;
-      line-height: 1.5;
-      margin-left: 30px;
-      text-align: left; }
-    .shoppingCar .goods_list .info .price {
-      width: 160px;
-      height: 16px;
-      text-align: center;
-      margin-left: 69px;
-      color: #000; }
-    .shoppingCar .goods_list .info .num {
+.shoppingCar .goods_list .info {
+  padding: 25px 0;
+  height: 80px;
+  border: solid 1px #ddd;
+  border-bottom: 0;
+  background-color: #fefaf1; }
+  .shoppingCar .goods_list .info div {
+    float: left; }
+  .shoppingCar .goods_list .info .input-checked {
+    position: relative;
+    width: 73px;
+    height: 23px; }
+  .shoppingCar .goods_list .info .smallImg {
+    width: 112px;
+    padding: 1px;
+    background: #fff;
+    border: 1px solid #ddd;
+    vertical-align: middle; }
+  .shoppingCar .goods_list .info .goods-name {
+    width: 185px;
+    padding-left: 15px;
+    text-align: left; }
+  .shoppingCar .goods_list .info .goods-model {
+    width: 120px;
+    height: 36px;
+    line-height: 1.5;
+    margin-left: 30px;
+    text-align: left; }
+  .shoppingCar .goods_list .info .price {
+    width: 160px;
+    height: 16px;
+    text-align: center;
+    margin-left: 69px;
+    color: #000; }
+  .shoppingCar .goods_list .info .num {
+    height: 20px;
+    margin-left: 53px; }
+    .shoppingCar .goods_list .info .num a {
+      float: left;
+      width: 21px;
       height: 20px;
-      margin-left: 53px; }
-      .shoppingCar .goods_list .info .num a {
-        float: left;
-        width: 21px;
-        height: 20px;
-        background: url(/dist/images/flow_cart_bg_new.png) no-repeat; }
-      .shoppingCar .goods_list .info .num .reduce {
-        background-position: 0 -149px; }
-      .shoppingCar .goods_list .info .num .add {
-        background-position: -21px -149px; }
-      .shoppingCar .goods_list .info .num .count {
-        float: left;
-        width: 40px;
-        height: 18px;
-        border: 1px solid #ccc;
-        padding: 0;
-        margin: 0;
-        line-height: 18px;
-        text-align: center;
-        font-size: 14px;
-        color: #333;
-        background: 0 0;
-        visibility: visible; }
-    .shoppingCar .goods_list .info .subtotal {
-      width: 120px;
+      background: url(/dist/images/flow_cart_bg_new.png) no-repeat; }
+    .shoppingCar .goods_list .info .num .reduce {
+      background-position: 0 -149px; }
+    .shoppingCar .goods_list .info .num .add {
+      background-position: -21px -149px; }
+    .shoppingCar .goods_list .info .num .count {
+      float: left;
+      width: 40px;
+      height: 18px;
+      border: 1px solid #ccc;
+      padding: 0;
+      margin: 0;
+      line-height: 18px;
       text-align: center;
-      margin-left: 46px;
-      line-height: 1.5;
-      font-weight: 700;
-      color: #555; }
-    .shoppingCar .goods_list .info .delete {
-      margin-left: 48px; }
+      font-size: 14px;
+      color: #333;
+      background: 0 0;
+      visibility: visible; }
+  .shoppingCar .goods_list .info .subtotal {
+    width: 120px;
+    text-align: center;
+    margin-left: 46px;
+    line-height: 1.5;
+    font-weight: 700;
+    color: #555; }
+  .shoppingCar .goods_list .info .delete {
+    margin-left: 48px; }
 
 .shoppingCar .foot {
   background-color: #eee;

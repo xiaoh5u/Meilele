@@ -49,69 +49,218 @@
     .address .address-box .addAddress i {
       font-size: 16px;
       margin: 2px; }
+  .address .address-box .address-list {
+    padding: 11px 20px;
+    background-color: #fefaf1;
+    cursor: pointer; }
+    .address .address-box .address-list:hover .control {
+      display: inline-block; }
+    .address .address-box .address-list .left-icon {
+      float: left; }
+      .address .address-box .address-list .left-icon i {
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: top;
+        width: 12px;
+        height: 16px;
+        background: url(/dist/images/flow_pre_checkout_new.png) -15px 0px no-repeat; }
+    .address .address-box .address-list p {
+      display: inline-block; }
+    .address .address-box .address-list .address-detail {
+      float: left;
+      padding-left: 20px; }
+      .address .address-box .address-list .address-detail input {
+        vertical-align: middle; }
+    .address .address-box .address-list .control {
+      display: none;
+      margin-left: 10px; }
 
-.address .info-input .shadow {
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
-  opacity: .6;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 100000; }
-
-.address .info-input .address-input {
-  width: 910px;
-  background: #fff;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000001;
-  border: 5px solid rgba(200, 200, 200, 0.5); }
-  .address .info-input .address-input .head {
-    background: #f1f1f1;
-    padding: 0 15px;
-    font-size: 16px;
-    height: 37px;
-    line-height: 37px; }
-    .address .info-input .address-input .head a {
-      width: 20px;
+.address .info-input {
+  display: none; }
+  .address .info-input .shadow {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: .6;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100000; }
+  .address .info-input .address-input {
+    width: 910px;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000001;
+    border: 5px solid rgba(200, 200, 200, 0.5); }
+    .address .info-input .address-input #city,
+    .address .info-input .address-input #area {
+      display: none; }
+    .address .info-input .address-input .head {
+      background: #f1f1f1;
+      padding: 0 15px;
+      font-size: 16px;
+      height: 37px;
+      line-height: 37px; }
+      .address .info-input .address-input .head a {
+        width: 20px;
+        height: 20px;
+        float: right; }
+        .address .info-input .address-input .head a i {
+          font-size: 20px; }
+    .address .info-input .address-input .address-input-table td {
+      padding: 15px 0; }
+    .address .info-input .address-input .address-input-table .label {
+      width: 120px;
+      text-align: right; }
+    .address .info-input .address-input .address-input-table .must::before {
+      content: '*';
+      color: #e62318; }
+    .address .info-input .address-input .address-input-table .value input {
+      height: 24px;
+      line-height: 20px;
+      color: #555;
+      border: 1px solid #ddd;
+      padding: 0 3px; }
+    .address .info-input .address-input .address-input-table .value .btn {
+      float: left;
       height: 20px;
-      float: right; }
-      .address .info-input .address-input .head a i {
-        font-size: 20px; }
-  .address .info-input .address-input .address-input-table td {
-    padding: 15px 0; }
-  .address .info-input .address-input .address-input-table .label {
-    width: 120px;
-    text-align: right; }
-  .address .info-input .address-input .address-input-table .must::before {
-    content: '*';
-    color: #e62318; }
-  .address .info-input .address-input .address-input-table .value input {
-    height: 24px;
-    line-height: 20px;
-    color: #555;
-    border: 1px solid #ddd;
-    padding: 0 3px; }
-  .address .info-input .address-input .address-input-table .value .btn {
+      padding-left: 10px;
+      color: #fff;
+      font-weight: 700;
+      background: url(/dist/images/bg2.png) 0 -140px no-repeat;
+      cursor: pointer;
+      padding-top: 5px;
+      line-height: 17px; }
+      .address .info-input .address-input .address-input-table .value .btn .rr {
+        float: right;
+        width: 10px;
+        background: url(/dist/images/bg2.png) -299px -140px no-repeat;
+        height: 25px;
+        margin-top: -5px; }
+    .address .info-input .address-input .address-input-table tr:nth-of-type(3) input {
+      width: 320px; }
+    .address .info-input .address-input .addressSubmit {
+      position: relative; }
+    .address .info-input .address-input #addressSubmit {
+      width: 102px;
+      background: none;
+      border: 0;
+      position: absolute;
+      left: 0; }
+
+.shoppingCar .checkAll,
+.shoppingCar .checkone {
+  display: none; }
+
+.shoppingCar .title {
+  background-color: #eee; }
+  .shoppingCar .title li {
     float: left;
-    height: 20px;
-    padding-left: 10px;
-    color: #fff;
+    height: 40px;
+    line-height: 40px;
+    color: #676767;
+    text-align: center;
+    position: relative; }
+  .shoppingCar .title .goods {
+    width: 545px;
+    text-align: left;
+    padding-left: 20px; }
+  .shoppingCar .title .price {
+    width: 100px; }
+  .shoppingCar .title .num {
+    width: 100px; }
+  .shoppingCar .title .subtotal {
+    width: 170px; }
+  .shoppingCar .title .psfs {
+    width: 264px; }
+
+.shoppingCar label {
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  width: 15px;
+  height: 13px;
+  background: url(/dist/images/flow_cart_bg_new.png) no-repeat -22px 0; }
+
+.shoppingCar .label-active {
+  background: url(/dist/images/flow_cart_bg_new.png) no-repeat 0 0; }
+
+.shoppingCar .goods_list .info {
+  padding: 25px;
+  height: 80px;
+  border: solid 1px #ddd; }
+  .shoppingCar .goods_list .info div {
+    float: left; }
+  .shoppingCar .goods_list .info .input-checked {
+    position: relative;
+    width: 73px;
+    height: 23px; }
+  .shoppingCar .goods_list .info .smallImg {
+    width: 112px;
+    padding: 1px;
+    background: #fff;
+    border: 1px solid #ddd;
+    vertical-align: middle; }
+  .shoppingCar .goods_list .info .goods-name {
+    width: 185px;
+    padding-left: 15px;
+    text-align: left; }
+  .shoppingCar .goods_list .info .price {
+    width: 140px;
+    height: 16px;
+    text-align: center;
+    margin-left: 200px;
+    color: #000; }
+  .shoppingCar .goods_list .info .num {
+    width: 68px;
+    text-align: center;
+    height: 20px; }
+  .shoppingCar .goods_list .info .psfs {
+    text-align: center;
+    margin: 0 100px; }
+  .shoppingCar .goods_list .info .subtotal {
+    width: 120px;
+    text-align: center;
+    margin-left: 6px;
+    line-height: 1.5;
     font-weight: 700;
-    background: url(/dist/images/bg2.png) 0 -140px no-repeat;
-    cursor: pointer;
-    padding-top: 5px;
-    line-height: 17px; }
-    .address .info-input .address-input .address-input-table .value .btn .rr {
-      float: right;
-      width: 10px;
-      background: url(/dist/images/bg2.png) -299px -140px no-repeat;
-      height: 25px;
-      margin-top: -5px; }
-  .address .info-input .address-input .address-input-table tr:nth-of-type(3) input {
-    width: 320px; }
+    color: #555; }
+
+.shoppingCar .order_info {
+  position: relative;
+  top: -1px;
+  float: right;
+  width: 398px;
+  height: 84px;
+  padding: 26px 25px 30px;
+  border: 1px solid #e62318; }
+  .shoppingCar .order_info p {
+    text-align: right;
+    font-size: 14px;
+    color: #333; }
+    .shoppingCar .order_info p span {
+      color: #666; }
+  .shoppingCar .order_info .spe span {
+    font-size: 22px;
+    font-weight: 700;
+    color: #e62318; }
+  .shoppingCar .order_info .post_address {
+    margin: 10px 0; }
+
+.shoppingCar .submit {
+  width: 154px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  background-color: #e62318;
+  position: absolute;
+  bottom: -40px;
+  right: -1px; }

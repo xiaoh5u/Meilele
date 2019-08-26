@@ -110,30 +110,46 @@
         </div>
     </div>
 
-
-
     <div class="address">
         <div class="w">
             <div class="title">
                 <span>收货地址</span>
-                <a href=""><i class="iconfont icon-jia1"></i> 新增地址</a>
+                <a href="javascirpt:;" class="right-add"><i class="iconfont icon-jia1"></i> 新增地址</a>
             </div>
 
             <div class="address-box">
-                <p class="addAddress"><i class="iconfont icon-jiahao"></i>添加收货地址</p>
+                <!-- <p class="addAddress"><i class="iconfont icon-jiahao"></i>添加收货地址</p> -->
+
+                <div class="address-list clear">
+                    <div class="left-icon">
+                        <i></i>寄送至
+                    </div>
+                    <div class="address-detail">
+                        <input type="radio" checked>
+                        <span>name</span>
+                        <p class="city-name">xxxxxxxx</p>
+                        <span class="tel">1111</span>
+                    </div>
+
+                    <div class="control">
+                        <a href="javascript:;" class="updata">[编辑]</a>
+                        <a href="javascript:;" class="delete">[删除]</a>
+                    </div>
+                </div>
             </div>
 
             <div class="info-input">
                 <div class="shadow"> </div>
                 <div class="address-input">
+                    <form action="javascript:;">
                     <div class="head">
                         <span>收货人信息：</span>
-                        <a href="javascript:;"><i class="iconfont icon-cuowu1"></i></a>
+                        <a href="javascript:;" class="close"><i class="iconfont icon-cuowu1"></i></a>
                     </div>
                     <table class="address-input-table">
                         <tr>
                             <td class="label must">收货人姓名：</td>
-                            <td class="value"><input type="text"></td>
+                            <td class="value"><input type="text" id="name" required></td>
                         </tr>
                         <tr>
                             <td class="label must">所在地区：</td>
@@ -155,13 +171,16 @@
                                 详细地址：
                             </td>
                             <td class="value">
-                                <span></span><input type="text">
+                                <span class="province"></span>
+                                <span class="city"></span>
+                                <span class="area"></span>
+                                <input type="text" id="detail" required>
                             </td>
                         </tr>
                         <tr>
                             <td class="label must">手机号码：</td>
                             <td class="value">
-                                <input type="text">
+                                <input type="text" id="tel" required>
                             </td>
                         </tr>
                         <tr>
@@ -182,15 +201,79 @@
                         </tr>
                         <tr>
                             <td class="label"></td>
-                            <td class="value clear">
-                                <span class="btn">保存收货人信息<span class="rr"></span></span>
+                            <td class="value clear addressSubmit">
+                                <input type="submit" id=addressSubmit value="">
+                                <span class="btn">保存收货人信息 <span class="rr"></span></span>
                             </td>
                         </tr>
+                    </form>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+    <div class="shoppingCar">
+        <div class="w clear">
+
+            <div class="goods-normal">
+                <ul class="title clear">
+
+                    <li class="goods">商品</li>
+                    <li class="price">单价</li>
+                    <li class="num">数量</li>
+                    <li class="psfs">配送方式</li>
+                    <li class="subtotal">金额</li>
+                </ul>
+
+                <ul class="goods_list">
+                    <li class="info clear">
+                        <div class="smallImg">
+                            <img src="/dist/images/YKkxtD0+l8CT6mdTP0jUTosXyzGqRaYb484nDncYwHNTjznmquhjG3INu5Ihpxs1StMBFx_ha8R17gBl3kLbuw==.jpg"
+                                alt="">
+                        </div>
+
+                        <div class="goods-name">
+                            <a href="javascript:;">传承经典 返璞归真 复古大气雕花 天然木纹1.8米床板条床</a>
+                        </div>
+
+
+                        <div class="price">
+                            ￥<span>3366.00</span>
+                        </div>
+
+                        <div class="num">
+                            1个
+                        </div>
+                        <div class="psfs">
+                            物流<br>
+                            (送货入户并安装)
+                        </div>
+                        <div class="subtotal">
+                            ￥<span>3366.00</span>
+                        </div>
+
+
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="order_info">
+                <p class="spe">实付款：<span id="JS_after"><span class="yen">¥</span>4853.00</span></p>
+                <p class="post_address">寄送至：<span>北京北京西城区啊啊啊啊啊啊</span></p>
+                <p class="consignee">收货人：<span class="name">吴彦祖</span><span class="number">13733452681</span></p>
+                <a href="javascript:;" class="submit">提交</a >
+            </div>
+           
+        </div>
+    </div>
+
+
+
+
 </body>
 <script src="/dist/js/jquery-1.11.3.js"></script>
 <script src="/dist/js/layui/layui.js"></script>
