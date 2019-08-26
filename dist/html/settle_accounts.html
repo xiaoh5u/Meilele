@@ -102,7 +102,7 @@
                 <a href="/dist/index.html" class="logo">
                     <img src="/dist/images/logo1.png" alt="">
                 </a>
-                <span>用户注册</span>
+                <span>确认订单</span>
             </div>
 
             <div class="right">
@@ -118,23 +118,26 @@
             </div>
 
             <div class="address-box">
-                <!-- <p class="addAddress"><i class="iconfont icon-jiahao"></i>添加收货地址</p> -->
+                <p class="addAddress"><i class="iconfont icon-jiahao"></i>添加收货地址</p>
 
-                <div class="address-list clear">
-                    <div class="left-icon">
-                        <i></i>寄送至
-                    </div>
-                    <div class="address-detail">
-                        <input type="radio" checked>
-                        <span>name</span>
-                        <p class="city-name">xxxxxxxx</p>
-                        <span class="tel">1111</span>
-                    </div>
 
-                    <div class="control">
-                        <a href="javascript:;" class="updata">[编辑]</a>
-                        <a href="javascript:;" class="delete">[删除]</a>
-                    </div>
+
+                <div class="address-list">
+                    <!-- <div class="address-li clear">
+                        <div class="left-icon">
+                            <i></i>寄送至
+                        </div>
+                        <div class="address-detail">
+                            <input type="radio"  name='check' checked>
+                            <span calss='name'>name</span>
+                            <p class="city-name">xxxxxxxx</p>
+                            <span class="tel">1111</span>
+                        </div>
+                        <div class="control">
+                            <a href="javascript:;" class="update">[编辑]</a>
+                            <a href="javascript:;" class="delete">[删除]</a>
+                        </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -142,70 +145,75 @@
                 <div class="shadow"> </div>
                 <div class="address-input">
                     <form action="javascript:;">
-                    <div class="head">
-                        <span>收货人信息：</span>
-                        <a href="javascript:;" class="close"><i class="iconfont icon-cuowu1"></i></a>
-                    </div>
-                    <table class="address-input-table">
-                        <tr>
-                            <td class="label must">收货人姓名：</td>
-                            <td class="value"><input type="text" id="name" required></td>
-                        </tr>
-                        <tr>
-                            <td class="label must">所在地区：</td>
-                            <td class="value">
-                                <select id="province">
-                                    <option value="">请选择省份</option>
-                                </select>
-                                <select id="city">
-                                    <option value="">请选择城市</option>
-                                </select>
-                                <select id="area">
-                                    <option value="">请选择地区</option>
-                                </select>
-                            </td>
-                        </tr>
+                        <div class="head">
+                            <span>收货人信息：</span>
+                            <a href="javascript:;" class="close"><i class="iconfont icon-cuowu1"></i></a>
+                        </div>
+                        <table class="address-input-table">
+                            <tr>
+                                <td class="label must">收货人姓名：</td>
+                                <td class="value"><input type="text" id="name" required></td>
+                            </tr>
+                            <tr>
+                                <td class="label must">所在地区：</td>
+                                <td class="value">
+                                    <select id="province">
+                                        <option value="">请选择省份</option>
+                                    </select>
+                                    <select id="city">
+                                        <option value="">请选择城市</option>
+                                    </select>
+                                    <select id="area">
+                                        <option value="">请选择地区</option>
+                                    </select>
+                                </td>
+                            </tr>
 
-                        <tr>
-                            <td class="label must">
-                                详细地址：
-                            </td>
-                            <td class="value">
-                                <span class="province"></span>
-                                <span class="city"></span>
-                                <span class="area"></span>
-                                <input type="text" id="detail" required>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label must">手机号码：</td>
-                            <td class="value">
-                                <input type="text" id="tel" required>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">
-                                备用电话：
-                            </td>
-                            <td class="value">
-                                <input type="text">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label">
-                                电子邮箱：
-                            </td>
-                            <td class="value">
-                                <input type="text">用来接收订单提醒邮件，便于您及时了解订单状态
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label"></td>
-                            <td class="value clear addressSubmit">
-                                <input type="submit" id=addressSubmit value="">
-                                <span class="btn">保存收货人信息 <span class="rr"></span></span>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td class="label must">
+                                    详细地址：
+                                </td>
+                                <td class="value">
+                                    <span class="province"></span>
+                                    <span class="city"></span>
+                                    <span class="area"></span>
+                                    <input type="text" id="detail" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label must">手机号码：</td>
+                                <td class="value">
+                                    <input type="text" id="tel" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    备用电话：
+                                </td>
+                                <td class="value">
+                                    <input type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    电子邮箱：
+                                </td>
+                                <td class="value">
+                                    <input type="text">用来接收订单提醒邮件，便于您及时了解订单状态
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label"></td>
+                                <td class="value clear addressSubmit">
+                                    <input type="submit" id=addressSubmit value="">
+                                    <span class="btn">保存收货人信息 <span class="rr"></span></span>
+                                </td>
+                                <td class="value clear updateAddress">
+                                    <input type="submit" id=updateAddress value="">
+                                    <span class="btn">修改收货人信息 <span class="rr"></span></span>
+                                </td>
+
+                            </tr>
                     </form>
                     </table>
                 </div>
@@ -217,7 +225,7 @@
 
     <div class="shoppingCar">
         <div class="w clear">
-
+            <h2>商品清单</h2>
             <div class="goods-normal">
                 <ul class="title clear">
 
@@ -263,11 +271,11 @@
 
             <div class="order_info">
                 <p class="spe">实付款：<span id="JS_after"><span class="yen">¥</span>4853.00</span></p>
-                <p class="post_address">寄送至：<span>北京北京西城区啊啊啊啊啊啊</span></p>
-                <p class="consignee">收货人：<span class="name">吴彦祖</span><span class="number">13733452681</span></p>
-                <a href="javascript:;" class="submit">提交</a >
+                <p class="post_address">寄送至：<span></span></p>
+                <p class="consignee">收货人：<span class="name"></span><span class="number"></span></p>
+                <a href="javascript:;" class="submit">提交</a>
             </div>
-           
+
         </div>
     </div>
 

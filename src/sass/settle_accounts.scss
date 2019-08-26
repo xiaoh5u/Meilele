@@ -48,7 +48,8 @@ $global-color: #e62318;
 
         span {
             float: left;
-            font-size: 20px;
+            font-size: 18px;
+            font-weight: 100;
         }
 
         a {
@@ -82,9 +83,10 @@ $global-color: #e62318;
 
 
 
-        .address-list {
+        .address-li {
             padding: 11px 20px;
             background-color: #fefaf1;
+            vertical-align: middle;
 
             &:hover {
                 .control {
@@ -96,6 +98,8 @@ $global-color: #e62318;
 
             .left-icon {
                 float: left;
+                width: 56px;
+                height: 20px;
 
                 i {
                     display: inline-block;
@@ -132,8 +136,8 @@ $global-color: #e62318;
         display: none;
 
         .shadow {
-            width: 100vw;
-            height: 100vh;
+            width: 98vw;
+            height: 120vh;
             background-color: #000;
             opacity: .6;
             position: absolute;
@@ -235,15 +239,18 @@ $global-color: #e62318;
                 }
             }
 
-            .addressSubmit{
+            .addressSubmit,
+            .updateAddress {
                 position: relative;
             }
-            #addressSubmit{
+
+            #addressSubmit,
+            #updateAddress {
                 width: 102px;
                 background: none;
                 border: 0;
                 position: absolute;
-                left:0;
+                left: 0;
             }
 
 
@@ -255,6 +262,7 @@ $global-color: #e62318;
 }
 
 .shoppingCar {
+    margin-top: 30px;
 
     .checkAll,
     .checkone {
