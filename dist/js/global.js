@@ -1,7 +1,7 @@
-layui.use('layer', function(){
+layui.use('layer', function () {
     var layer = layui.layer;
-    
-  });   
+
+});
 
 
 //判断用户登录状态
@@ -46,3 +46,21 @@ function tel_scroll() {
 }
 
 
+//侧边栏
+$('.sidebar-container li').on('mouseenter', function () {
+    $('.sidebar-container').css('overflow', 'visible')
+    $(this).find('.prompt').animate({
+        'opacity': '1',
+        'right': '80px',
+    })
+})
+$('.sidebar-container li').on('mouseleave', function () {
+    $('.sidebar-container').css('overflow', 'hidden')
+    $(this).find('.prompt').animate({
+        'opacity': '0',
+        'right': '100px',
+    })
+})
+$('.sidebar-container .top').on('click', function () {
+    document.documentElement.scrollTop = 0
+})

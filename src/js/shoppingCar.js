@@ -122,3 +122,4 @@ function getTotal() {
     $('#selectedTotal').html($total)
     $('#priceTotal').html($money.toFixed(2))
 }
+

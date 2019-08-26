@@ -138,6 +138,80 @@ header {
         color: #e62318;
         margin-left: 2px; }
 
+.sidebar-container {
+  position: fixed;
+  top: 250px;
+  right: 30px;
+  z-index: 9999999;
+  overflow: hidden;
+  height: 320px; }
+  .sidebar-container ul {
+    padding-top: 10px;
+    width: 80px;
+    background-color: #fff; }
+    .sidebar-container ul li {
+      position: relative;
+      height: 73px;
+      border: 1px solid #ebebeb;
+      color: #808080;
+      cursor: pointer; }
+      .sidebar-container ul li .prompt {
+        color: #fff;
+        line-height: 36px;
+        text-align: center;
+        width: 152px;
+        height: 36px;
+        background: url(/dist/images/chat_icon.png) no-repeat;
+        background-position: 0 -526px;
+        position: absolute;
+        right: 100px;
+        top: 20px;
+        opacity: 0; }
+      .sidebar-container ul li .goods-num {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: #e62318;
+        text-align: center;
+        line-height: 15px;
+        color: white;
+        position: absolute;
+        top: 9px;
+        right: 14px; }
+      .sidebar-container ul li .content {
+        width: 78px;
+        height: 72px;
+        background: url(/dist/images/chat_icon.png) no-repeat; }
+      .sidebar-container ul li:nth-of-type(1) .content {
+        position: relative;
+        top: -10px; }
+      .sidebar-container ul li:hover {
+        background-color: #e62318;
+        color: white; }
+      .sidebar-container ul li:nth-of-type(2) .content {
+        background-position: 25px -809px; }
+      .sidebar-container ul li:nth-of-type(2):hover .content {
+        background-position: -15px -809px; }
+      .sidebar-container ul li:nth-of-type(3) .content {
+        background-position: 0 -161px;
+        height: 50px; }
+      .sidebar-container ul li:nth-of-type(3):hover .content {
+        background-position: -78px -158px; }
+      .sidebar-container ul li:nth-of-type(3):hover p {
+        color: white; }
+      .sidebar-container ul li:nth-of-type(4) .content {
+        height: 50px;
+        background-position: 0 -320px; }
+      .sidebar-container ul li:nth-of-type(4):hover .content {
+        background-position: -78px -321px; }
+      .sidebar-container ul li p {
+        position: absolute;
+        top: 53px;
+        width: 80px;
+        text-align: center; }
+    .sidebar-container ul li:not(:first-child) {
+      border-top: 0; }
+
 .footer-icon {
   margin-top: 35px;
   padding: 35px 0;

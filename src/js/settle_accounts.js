@@ -233,7 +233,7 @@ $('#addressSubmit').on('click', function () {
 $('.address-list').on('click', '.delete', function () {
 
     $id = $(this).parents('.address-li').attr('addressID')
-    layer.confirm('is not?', {
+    layer.confirm('确认删除？', {
         icon: 3,
         title: '提示'
     }, function (index) {
@@ -250,6 +250,7 @@ $('.address-list').on('click', '.delete', function () {
         }) => {
             if (code) {
                 layer.msg('删除成功',{time:1000})
+                $(this).parents('.address-li').remove()
             }
         })
 
