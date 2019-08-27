@@ -108,12 +108,61 @@ $('#list').on('mouseenter', 'li', function () {
 
 
 
-//商品分类
+$('.screen_left a').on('click', function () {
+    $(this).css({
+        'background-color': '#e62318',
+        'color': 'white'
+    }).siblings().css({
+        'background-color': '#e6e6e6',
+        'color': '#666'
+    })
+})
+
+
+/*******************************************商品分类*****************************************/
+var str = ''
+//类型分类
 $('.goods_classify a').on('click', function () {
     $title = $(this).html()
-    getAll($title);
+    str += $title
+    getAll(str);
 })
-//商品分类
+//价格分类
+$('.goods_price a').on('click', function () {
+    $arr = $(this).html().split('-')
+    $start = $arr[0];
+    $end = $arr[1];
+    priceClassfy($start, $end)
+
+})
+
+//风格选择
+$('.goods_style a').on('click', function () {
+    $title = $(this).html()
+
+    str += $title
+    getAll(str);
+})
+
+//风格选择
+
+//清空选择
+$('.selected .clearAll').on('click', function () {
+    getAll('');
+    str = ''
+
+    $('.screen_left a:eq(0)').css({
+        'background-color': '#e62318',
+        'color': 'white'
+    }).siblings().css({
+        'background-color': '#e6e6e6',
+        'color': '#666'
+    })
+})
+//清空选择
+
+/*******************************************商品分类*****************************************/
+
 
 
 /******************************获取数据库商品&&模糊查询&&分页******************************* */
@@ -179,7 +228,10 @@ function getLayui(key, data) {
         });
     });
 }
-//模糊查询及获取商品列表
+
+
+
+//模糊查询 及 获取商品列表
 function renderList(key, obj) {
     $.ajax({
         url: 'http://localhost/php/project_php/get_goodsList.php',
@@ -216,43 +268,277 @@ function renderList(key, obj) {
                 goods_xl
             }) => {
                 html = `
-<li>
-<div class="box">
-    <a href="/dist/html/goods_detail.html" target="_blank" goods_id='${goods_id}'>
-        <div class="small_img">
-            <img src="${goods_imgs_big}"
-                alt="">
+                <li>
+                <div class="box">
+                    <a href="javascript:;" goods_id='${goods_id}'>
+                        <div class="small_img">
+                            <img src="${goods_imgs_big}"
+                                alt="">
 
-        </div>
-        <p class="price">¥<span>${goods_price}</span></p>
-      <div class='name'>${goods_name}</div>
-    </a>
-    <div class="sale">
-        <p>已售<span style="color: #38b;">${goods_xl}</span></p>
-    </div>
-    <div class="option">
-        <a href="javascript:;" class="comparison">
-            <i></i>
-            <span>对比</span>
-        </a>
-        <a href="javascript:;" class="like">
-            <i></i>
-            <span>收藏</span>
-        </a>
-        <a href="javascript:;" class="addCar">
-            <i></i>
-            <span>加入购物车</span>
+                        </div>
+                        <p class="price">¥<span>${goods_price}</span></p>
+                    <div class='name'>${goods_name}</div>
+                    </a>
+                    <div class="sale">
+                        <p>已售<span style="color: #38b;">${goods_xl}</span></p>
+                    </div>
+                    <div class="option">
+                        <a href="javascript:;" class="comparison">
+                            <i></i>
+                            <span>对比</span>
+                        </a>
+                        <a href="javascript:;" class="like">
+                            <i></i>
+                            <span>收藏</span>
+                        </a>
+                        <a href="javascript:;" class="addCar">
+                            <i></i>
+                            <span>加入购物车</span>
 
-        </a>
+                        </a>
 
-    </div>
-</div>
-</li>
+                    </div>
+                </div>
+                </li>
 
-`
+                `
+                $('#list').prepend(html)
+            })
+
+            /****************************以上为基础代码***************************** */
+
+
+
+            /**排序**/
+            var oder = 'normal'
+            var num = 0;
+            var attr = 'id'
+
+            $('.screen_left a:eq(0)').on('click', function () {
+                num++;
+                attr = 'id'
+                orderA(num, attr)
+            })
+            $('.sales-order ').on('click', function () {
+                num++;
+                attr = 'goods_sales'
+                orderA(num, attr)
+            })
+            $('.price-order ').on('click', function () {
+                num++;
+                attr = 'goods_price'
+                orderA(num, attr)
+            })
+
+            function orderA(num, attr) {
+                if (num % 3 === 1) {
+                    order = 'asc'
+
+                } else if (num % 3 === 2) {
+                    order = 'desc'
+                } else {
+                    order = 'normal'
+                }
+                ajax({
+                    url: 'http://localhost/php/project_php/goods_order.php',
+                    data: {
+                        order,
+                        attr,
+                    }
+                })
+            }
+            /**排序**/
+
+        }
+    })
+
+
+
+
+}
+/******************************获取数据库商品&&模糊查询&&分页******************************* */
+
+
+
+/****************************************加入购物车***************************************** */
+
+$('#list').on('click', '.addCar', function () {
+    if (!user) {
+        layer.msg('请登录', function () {
+
+        });
+        return
+    }
+
+    $goodsid = $(this).parents('.box').find('a:eq(0)').attr('goods_id')
+    $username = $('.username').html()
+    $goodsnum = 1;
+
+    $.ajax({
+        url: 'http://localhost/php/project_php/get_car_num.php',
+        type: 'post',
+        dataType: 'json',
+        data: {
+            'goodsid': $goodsid,
+            'username': $username
+        }
+    }).then(({
+        code,
+        count
+    }) => {
+        var num =  $goodsnum += count*1
+        if (count > 0) {
+            $.ajax({
+                url: 'http://localhost/php/project_php/addCar.php',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    'update': 1,
+                    'goodsid': $goodsid,
+                    'username': $username,
+                    'goodsnum': num,
+                }
+            }).then(({
+                code,
+            }) => {
+                if (code) {
+                    layer.msg('加购成功', {
+                        icon: 1,
+                        time: 2000
+                    }, function () {});
+                    $n =  $('.goods-num').html()*1
+                    $('.goods-num').html($n+1)
+                    $('.shopping-trolley strong').html($n+1)
+                }
+            })
+
+        } else {
+            $.ajax({
+                url: 'http://localhost/php/project_php/addCar.php',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    'update': 0,
+                    'goodsid': $goodsid,
+                    'username': $username,
+                    'goodsnum': $goodsnum
+                }
+            }).then(({
+                code,
+            }) => {
+                    layer.msg('添加成功', {
+                        icon: 1,
+                        time: 2000
+                    }, function () {});
+                   $n =  $('.goods-num').html()*1
+                    $('.goods-num').html($n+1)
+                    $('.shopping-trolley strong').html($n+1)
+                
+            })
+
+        }
+    })
+
+
+})
+
+
+
+/****************************************加入购物车***************************************** */
+
+
+//价格排序函数
+function priceClassfy(start, end) {
+    ajax({
+        url: 'http://localhost/php/project_php/goods_price_classfy.php',
+        data: {
+            'start': start,
+            'end': end
+        }
+    })
+}
+
+
+
+// 常用AJAX函数
+function ajax({
+    url,
+    data
+}) {
+
+    $.ajax({
+        url: url,
+        type: 'post',
+        dataType: 'json',
+        data: data,
+        beforeSend: (function () {
+            layui.use('layer', function () {
+                var layer = layui.layer;
+                layer.msg('拼命加载中..')
+            });
+        }),
+
+    }).then(({
+        code,
+        msg,
+        data,
+
+    }) => {
+        if (code) {
+            $('#list>li').remove()
+
+            data.forEach(({
+                goods_id,
+                goods_name,
+                goods_price,
+                goods_imgs_big,
+                goods_xl
+            }) => {
+                html = `
+                    <li>
+                    <div class="box">
+                        <a href="/dist/html/goods_detail.html" target="_blank" goods_id='${goods_id}'>
+                            <div class="small_img">
+                                <img src="${goods_imgs_big}"
+                                    alt="">
+        
+                            </div>
+                            <p class="price">¥<span>${goods_price}</span></p>
+                        <div class='name'>${goods_name}</div>
+                        </a>
+                        <div class="sale">
+                            <p>已售<span style="color: #38b;">${goods_xl}</span></p>
+                        </div>
+                        <div class="option">
+                            <a href="javascript:;" class="comparison">
+                                <i></i>
+                                <span>对比</span>
+                            </a>
+                            <a href="javascript:;" class="like">
+                                <i></i>
+                                <span>收藏</span>
+                            </a>
+                            <a href="javascript:;" class="addCar">
+                                <i></i>
+                                <span>加入购物车</span>
+        
+                            </a>
+        
+                        </div>
+                    </div>
+                    </li>
+        
+                    `
                 $('#list').prepend(html)
             })
         }
     })
 }
-/******************************获取数据库商品&&模糊查询&&分页******************************* */
+
+
+
+
+$('#list').on('click','li',function(){
+    $id = $(this).find('a:eq(0)').attr('goods_id')
+    location.href=  `/dist/html/goods_detail.html?goodsid=${$id}`
+})

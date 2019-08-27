@@ -67,6 +67,43 @@ $('.sidebar-container .top').on('click', function () {
 
 
 
+
+$.ajax({
+    url: 'http://localhost/php/project_php/get_car_all.php',
+    type: 'post',
+    dataType: 'json',
+    data: {
+        'username': $('.username').html(),
+    }
+}).then(({
+    code,
+    data
+}) => {
+    if (code) {
+        $sum = 0;
+        data.forEach(item => {
+            $sum += item.goodsnum * 1
+        })
+        $('.goods-num').html($sum)
+        $('.shopping-trolley  strong').html($sum)
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /***************小球运动加购效果*********** */
 
 
