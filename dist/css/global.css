@@ -378,3 +378,12 @@ header {
         height: 25px;
         background-position: 0 -22px;
         margin-top: 9px; }
+
+.ball {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e62318;
+  display: none;
+  position: absolute;
+  z-index: 9999999; }

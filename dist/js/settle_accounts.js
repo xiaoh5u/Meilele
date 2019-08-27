@@ -215,6 +215,7 @@ $('#addressSubmit').on('click', function () {
                 $('.post_address>span').html($address)
                 $('.consignee .name').html($name)
                 $('.consignee .number').html($tel)
+                location.reload()
             });
 
         } else {
@@ -231,7 +232,7 @@ $('#addressSubmit').on('click', function () {
 
 //删除地址
 $('.address-list').on('click', '.delete', function () {
-
+    $parent = $(this).parents('.address-li')
     $id = $(this).parents('.address-li').attr('addressID')
     layer.confirm('确认删除？', {
         icon: 3,
@@ -249,17 +250,23 @@ $('.address-list').on('click', '.delete', function () {
             msg
         }) => {
             if (code) {
-                layer.msg('删除成功',{time:1000})
-                $(this).parents('.address-li').remove()
+                layer.msg('删除成功', {
+                    time: 1000
+                }, function () {
+                    $parent.remove()
+                    if ($('.address-li').length < 1) {
+                        $('.addAddress').css('display', 'block')
+                    }
+                })
+                layer.close(index);
+
             }
         })
 
-        layer.close(index);
+
     });
 
 })
-
-
 
 //地址信息更新
 $('.address-list').on('click', '.update', function () {
@@ -271,10 +278,6 @@ $('.address-list').on('click', '.update', function () {
 
 
 
-
-
-
-    
     $('#updateAddress').on('click', function () {
         $name = $('#name').val()
         if ($('.area').html()) {
@@ -305,11 +308,15 @@ $('.address-list').on('click', '.update', function () {
             data
         }) => {
             if (code) {
-                layer.msg('修改成功',{time:1000})
-                $('.info-input').css('display','none')
+                layer.msg('修改成功', {
+                    time: 1000
+                })
+                $('.info-input').css('display', 'none')
             } else {
-                layer.msg('修改失败',{time:1000})
-                $('.info-input').css('display','none')
+                layer.msg('修改失败', {
+                    time: 1000
+                })
+                $('.info-input').css('display', 'none')
             }
 
         })

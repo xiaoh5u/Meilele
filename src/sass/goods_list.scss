@@ -306,6 +306,8 @@ $global-color: #e62318;
 
 
     .list {
+        position: relative;
+        text-align: center;
         li {
             width: 280px;
             height: 300px;
@@ -343,7 +345,7 @@ $global-color: #e62318;
             font-family: Arial;
             font-weight: 400;
             color: $global-color;
-
+            text-align: left;
             span {
                 font-size: 20px;
             }
@@ -355,11 +357,13 @@ $global-color: #e62318;
             line-height: 20px;
             color: #333;
             overflow: hidden;
+            text-align: left;
         }
 
         .sale {
             height: 30px;
             line-height: 30px;
+            text-align: left;
         }
 
         .option {
@@ -372,7 +376,6 @@ $global-color: #e62318;
                 line-height: 26px;
                 float: left;
                 position: relative;
-
                 &:hover {
                     border-color: $global-color;
                 }
@@ -427,60 +430,6 @@ $global-color: #e62318;
 
 }
 
-.p-list{
-    text-align: center;
-    margin-top: 50px;
-    .p-disabled {
-        color: #999!important;
-        cursor: default;
-        height: 36px;
-        padding: 0 15px;
-        text-align: center;
-        line-height: 36px;
-        display: inline-block;
-        border: 1px solid #ddd;
-        font-size: 15px;
-    }
-
-    .p-item {
-        height: 36px;
-        padding: 0 15px;
-        text-align: center;
-        line-height: 36px;
-        display: inline-block;
-        border: 1px solid #ddd;
-        font-size: 15px;
-    }
-    .p-next {
-        margin-right: 17px;
-        height: 34px;
-        line-height: 34px;
-        padding: 0 14px;
-    }
-    .p-cur {
-        color: #fff;
-        background: #e62318;
-    }
-    .p-input {
-        width: 32px;
-        height: 20px;
-        line-height: 20px;
-        padding: 7px 0;
-        border: 1px solid #ddd;
-        text-align: center;
-        margin: 0;
-        outline: 0;
-    }
-    .p-enter {
-        height: 34px;
-        line-height: 32px;
-        width: 64px;
-        display: inline-block;
-        border: 1px solid #ddd;
-        background: #f5f5f5;
-        font-size: 14px;
-        font-family: 宋体;
-        color: #63544f;
-        text-align: center;
-    }
+.layui-box{
+    margin: 20px 0;
 }

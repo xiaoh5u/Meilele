@@ -64,3 +64,27 @@ $('.sidebar-container li').on('mouseleave', function () {
 $('.sidebar-container .top').on('click', function () {
     document.documentElement.scrollTop = 0
 })
+
+
+
+/***************小球运动加购效果*********** */
+
+
+// $('.list_goods').on('click', '.addCar', function (e) {
+//     var ev = event || e;
+
+
+//     console.log()
+//     $('.ball').stop(true, true).show().css({
+//         "left": x + 'px',
+//         "top": y + 'px',
+//     })
+
+//     $('.ball').animate({
+//         left: $('.sidebar-container')[0].offsetLeft,
+//         top: 320,
+//     }, function () {
+
+//         $('.ball').hide()
+//     })
+// })

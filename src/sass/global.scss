@@ -660,3 +660,14 @@ header {
         }
     }
 }
+
+
+.ball{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: $global-color;
+    display: none;
+    position: absolute;
+    z-index: 9999999;
+}

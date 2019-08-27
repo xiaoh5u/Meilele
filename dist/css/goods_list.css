@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .search {
   height: 112px; }
   .search .w {
@@ -190,126 +189,79 @@
     .goods_screen .screen_right .goods_num {
       color: #e62318; }
 
-.list_goods .list li {
-  width: 280px;
-  height: 300px;
-  float: left;
+.list_goods .list {
   position: relative;
-  margin-top: 15px;
-  margin-right: 20px;
-  cursor: pointer; }
-
-.list_goods .list .box {
-  padding: 3px;
-  border: 2px solid #f5f5f5;
-  background-color: #fff;
-  position: absolute; }
-  .list_goods .list .box:hover {
-    height: 320px;
-    border: 2px solid #e62318; }
-    .list_goods .list .box:hover .option {
-      display: block; }
-
-.list_goods .list .small_img {
-  height: 177px;
-  background-color: orange; }
-
-.list_goods .list .price {
-  padding: 10px 0 5px 0;
-  font-family: Arial;
-  font-weight: 400;
-  color: #e62318; }
-  .list_goods .list .price span {
-    font-size: 20px; }
-
-.list_goods .list .name {
-  display: block;
-  height: 38px;
-  line-height: 20px;
-  color: #333;
-  overflow: hidden; }
-
-.list_goods .list .sale {
-  height: 30px;
-  line-height: 30px; }
-
-.list_goods .list .option {
-  padding: 4px 0;
-  display: none; }
-  .list_goods .list .option a {
-    padding: 0px 14px;
-    border: 1px solid #dedede;
-    line-height: 26px;
+  text-align: center; }
+  .list_goods .list li {
+    width: 280px;
+    height: 300px;
     float: left;
-    position: relative; }
-    .list_goods .list .option a:hover {
-      border-color: #e62318; }
-  .list_goods .list .option i {
-    display: inline-block;
-    width: 13px;
-    height: 14px;
-    background: url(/dist/images/listicon.png); }
-  .list_goods .list .option .comparison i {
-    background-position: -1px -2px; }
-  .list_goods .list .option .comparison:hover i {
-    background-position: -1px -26px; }
-  .list_goods .list .option .like i {
-    width: 17px;
-    height: 13px;
-    background-position: -34px -3px; }
-  .list_goods .list .option .like:hover i {
-    background-position: -34px -27px; }
-  .list_goods .list .option .addCar i {
-    width: 16px;
-    height: 15px;
-    background-position: -72px -1px; }
-
-.p-list {
-  text-align: center;
-  margin-top: 50px; }
-  .p-list .p-disabled {
-    color: #999 !important;
-    cursor: default;
-    height: 36px;
-    padding: 0 15px;
-    text-align: center;
-    line-height: 36px;
-    display: inline-block;
-    border: 1px solid #ddd;
-    font-size: 15px; }
-  .p-list .p-item {
-    height: 36px;
-    padding: 0 15px;
-    text-align: center;
-    line-height: 36px;
-    display: inline-block;
-    border: 1px solid #ddd;
-    font-size: 15px; }
-  .p-list .p-next {
-    margin-right: 17px;
-    height: 34px;
-    line-height: 34px;
-    padding: 0 14px; }
-  .p-list .p-cur {
-    color: #fff;
-    background: #e62318; }
-  .p-list .p-input {
-    width: 32px;
-    height: 20px;
+    position: relative;
+    margin-top: 15px;
+    margin-right: 20px;
+    cursor: pointer; }
+  .list_goods .list .box {
+    padding: 3px;
+    border: 2px solid #f5f5f5;
+    background-color: #fff;
+    position: absolute; }
+    .list_goods .list .box:hover {
+      height: 320px;
+      border: 2px solid #e62318; }
+      .list_goods .list .box:hover .option {
+        display: block; }
+  .list_goods .list .small_img {
+    height: 177px;
+    background-color: orange; }
+  .list_goods .list .price {
+    padding: 10px 0 5px 0;
+    font-family: Arial;
+    font-weight: 400;
+    color: #e62318;
+    text-align: left; }
+    .list_goods .list .price span {
+      font-size: 20px; }
+  .list_goods .list .name {
+    display: block;
+    height: 38px;
     line-height: 20px;
-    padding: 7px 0;
-    border: 1px solid #ddd;
-    text-align: center;
-    margin: 0;
-    outline: 0; }
-  .p-list .p-enter {
-    height: 34px;
-    line-height: 32px;
-    width: 64px;
-    display: inline-block;
-    border: 1px solid #ddd;
-    background: #f5f5f5;
-    font-size: 14px;
-    font-family: 宋体;
-    color: #63544f;
-    text-align: center; }
+    color: #333;
+    overflow: hidden;
+    text-align: left; }
+  .list_goods .list .sale {
+    height: 30px;
+    line-height: 30px;
+    text-align: left; }
+  .list_goods .list .option {
+    padding: 4px 0;
+    display: none; }
+    .list_goods .list .option a {
+      padding: 0px 14px;
+      border: 1px solid #dedede;
+      line-height: 26px;
+      float: left;
+      position: relative; }
+      .list_goods .list .option a:hover {
+        border-color: #e62318; }
+    .list_goods .list .option i {
+      display: inline-block;
+      width: 13px;
+      height: 14px;
+      background: url(/dist/images/listicon.png); }
+    .list_goods .list .option .comparison i {
+      background-position: -1px -2px; }
+    .list_goods .list .option .comparison:hover i {
+      background-position: -1px -26px; }
+    .list_goods .list .option .like i {
+      width: 17px;
+      height: 13px;
+      background-position: -34px -3px; }
+    .list_goods .list .option .like:hover i {
+      background-position: -34px -27px; }
+    .list_goods .list .option .addCar i {
+      width: 16px;
+      height: 15px;
+      background-position: -72px -1px; }
+
+.layui-box {
+  margin: 20px 0; }
