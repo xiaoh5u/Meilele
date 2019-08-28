@@ -538,7 +538,7 @@ function ajax({
 
 
 
-$('#list').on('click','li',function(){
-    $id = $(this).find('a:eq(0)').attr('goods_id')
+$('#list').on('click','img',function(){
+    $id = $(this).parents('.box').find('a:eq(0)').attr('goods_id')
     location.href=  `/dist/html/goods_detail.html?goodsid=${$id}`
 })

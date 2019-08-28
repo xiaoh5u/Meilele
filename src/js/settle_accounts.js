@@ -2,6 +2,67 @@ if (!user) {
     location.href = '/dist/html/user_login.html'
 }
 
+var goodsid = localStorage.getItem('goodsid').split(',')
+var goodsnum = localStorage.getItem('goodsnum').split(',')
+
+var sum =0;
+for (var i = 0; i < goodsid.length; i++) {
+    
+   
+    $.ajax({
+        url: 'http://localhost/php/project_php/get_goods_detail.php',
+        type: 'post',
+        dataType: 'json',
+        async: false,
+        data: {
+            'goodsid': goodsid[i]
+        },
+        beforeSend: (function () {
+            layui.use('layer', function () {
+                var layer = layui.layer;
+                layer.msg('拼命加载中..')
+            });
+        }),
+
+    }).then(data => {
+        
+        $data = data.data[0]
+        var html = `
+            <li class="info clear">
+            <div class="smallImg">
+                <img src=${$data.goods_imgs_big}
+                    alt="">
+            </div>
+
+            <div class="goods-name">
+                <a href="javascript:;">${$data.goods_name}</a>
+            </div>
+
+
+            <div class="price">
+                ￥<span>${$data.goods_price}</span>
+            </div>
+
+            <div class="num">
+                ${goodsnum[i]}个
+            </div>
+            <div class="psfs">
+                物流<br>
+                (送货入户并安装)
+            </div>
+            <div class="subtotal">
+                ￥<span>${(goodsnum[i])*$data.goods_price}</span>
+            </div>
+
+
+        </li>
+            `
+        sum +=(goodsnum[i])*$data.goods_price
+        $('.goods_list').append(html)
+    })
+}
+
+$('#subtotal').html(sum)
 //进入页面加载用户收货地址
 $.ajax({
     url: 'http://localhost/php/project_php/get_address.php',
@@ -42,8 +103,6 @@ $.ajax({
     })
 
 })
-
-
 
 
 

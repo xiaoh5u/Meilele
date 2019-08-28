@@ -54,6 +54,9 @@
       .search .search-module .keywords .hot-key:hover {
         color: #e62318 !important; }
 
+.shoppingCar .goods-normal {
+  display: none; }
+
 .shoppingCar .checkAll,
 .shoppingCar .checkone {
   display: none; }
@@ -100,7 +103,7 @@
   height: 80px;
   border: solid 1px #ddd;
   border-bottom: 0;
-  background-color: #fefaf1; }
+  background-color: white; }
   .shoppingCar .goods_list .info div {
     float: left; }
   .shoppingCar .goods_list .info .input-checked {
@@ -205,8 +208,7 @@
   box-sizing: border-box;
   padding: 90px 0 90px 148px;
   border: 1px solid #ddd;
-  margin-top: 20px;
-  display: none; }
+  margin-top: 20px; }
   .shoppingCar .no-goods .icon {
     width: 131px;
     height: 93px;

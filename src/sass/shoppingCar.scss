@@ -89,7 +89,9 @@ $global-color: #e62318;
 
 
 .shoppingCar {
-
+    .goods-normal{
+        display: none;
+    }
     .checkAll,
     .checkone {
         display: none;
@@ -160,7 +162,7 @@ $global-color: #e62318;
             height: 80px;
             border: solid 1px #ddd;
             border-bottom: 0;
-            background-color: #fefaf1;
+            background-color: white;
 
             div {
                 float: left;
@@ -318,7 +320,6 @@ $global-color: #e62318;
         padding: 90px 0 90px 148px;
         border: 1px solid #ddd;
         margin-top: 20px;
-        display: none;
 
         .icon {
             width: 131px;
