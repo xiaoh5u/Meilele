@@ -97,14 +97,6 @@ $.ajax({
 
 
 
-
-
-
-
-
-
-
-
 //渲染页面
 
 $('.goods-normal').on('click', '.checkone', function () {
@@ -335,24 +327,27 @@ function update(id, addnum) {
 
 //结算
 $('.submit').click(function () {
-    var goodsid=[];
-    var goodsnum=[];
+    var goodsid = [];
+    var goodsnum = [];
     for (var i = 0; i < $('.checkone').length; i++) {
-        ($(`.checkone:eq(${i})`).prop('checked'))
-        $goodsid = $(`.checkone:eq(${i})`).parents('.info').attr('goodsid')
-        $goodsnum = $(`.checkone:eq(${i})`).parents('.info').find('.count').val()
-        
-        goodsid.push($goodsid)
-        goodsnum.push($goodsnum)
+        if ($(`.checkone:eq(${i})`).prop('checked')) {
+            $goodsid = $(`.checkone:eq(${i})`).parents('.info').attr('goodsid')
+            $goodsnum = $(`.checkone:eq(${i})`).parents('.info').find('.count').val()
+
+            goodsid.push($goodsid)
+            goodsnum.push($goodsnum)
+        }
     }
-    if($('.checkone:checked').length>1){
-        localStorage.setItem('goodsid',goodsid)
-        localStorage.setItem('goodsnum',goodsnum)
-        location.href='/dist/html/settle_accounts.html'
-    }else{
+
+    localStorage.removeItem('goodsid', 'goodsnum')
+    if ($('.checkone:checked').length >= 1) {
+        localStorage.setItem('goodsid', goodsid)
+        localStorage.setItem('goodsnum', goodsnum)
+        location.href = '/dist/html/settle_accounts.html'
+    } else {
         layer.msg('还未选中任何商品', function () {
             //关闭后的操作
-        }); 
+        });
     }
-   
+
 })

@@ -5,10 +5,10 @@ if (!user) {
 var goodsid = localStorage.getItem('goodsid').split(',')
 var goodsnum = localStorage.getItem('goodsnum').split(',')
 
-var sum =0;
+var sum = 0;
 for (var i = 0; i < goodsid.length; i++) {
-    
-   
+
+
     $.ajax({
         url: 'http://localhost/php/project_php/get_goods_detail.php',
         type: 'post',
@@ -25,7 +25,7 @@ for (var i = 0; i < goodsid.length; i++) {
         }),
 
     }).then(data => {
-        
+
         $data = data.data[0]
         var html = `
             <li class="info clear">
@@ -57,52 +57,15 @@ for (var i = 0; i < goodsid.length; i++) {
 
         </li>
             `
-        sum +=(goodsnum[i])*$data.goods_price
+        sum += (goodsnum[i]) * $data.goods_price
         $('.goods_list').append(html)
     })
 }
 
 $('#subtotal').html(sum)
 //进入页面加载用户收货地址
-$.ajax({
-    url: 'http://localhost/php/project_php/get_address.php',
-    type: 'post',
-    dataType: 'json',
-    data: {
-        'username': $('.username').html()
-    }
-}).then(({
-    msg,
-    code,
-    data
-}) => {
-    data.forEach(({
-        name,
-        telephone,
-        address,
-        addressID,
-    }) => {
-        $('.addAddress').css('display', 'none')
-        $html =
-            ` <div class="address-li clear" addressID='${addressID}'>
-                <div class="left-icon">
-                </div>
-                <div class="address-detail">
-                    <input type="radio"  name='check'>
-                    <span class='name'>${name}</span>
-                    <p class="city-name">${address}</p>
-                    <span class="tel">${telephone}</span>
-                </div>
-                <div class="control">
-                    <a href="javascript:;" class="update">[编辑]</a>
-                    <a href="javascript:;" class="delete">[删除]</a>
-                </div>
-            </div>`
 
-        $('.address-list').append($html)
-    })
-
-})
+get_address()
 
 
 
@@ -164,7 +127,7 @@ $.ajax({
                 $('#area').append($html)
             })
         } else {
-            $('#area').css('display', 'none')
+            $('#area').hide()
         }
         $area = $obj.list
 
@@ -180,19 +143,19 @@ $.ajax({
 
 //地址栏
 $('.close').on('click', function () {
-    $('.info-input').css('display', 'none')
+    $('.info-input').hide()
 })
 
 $('.addAddress').on('click', function () {
-    $('.info-input').css('display', 'block')
-    $('.updateAddress').css('display', 'none')
-    $('.addressSubmit').css('display', 'block')
+    $('.info-input').show()
+    $('.updateAddress').hide()
+    $('.addressSubmit').show()
 })
 
 $('.right-add').on('click', function () {
-    $('.info-input').css('display', 'block')
-    $('.updateAddress').css('display', 'none')
-    $('.addressSubmit').css('display', 'block')
+    $('.info-input').show()
+    $('.updateAddress').hide()
+    $('.addressSubmit').show()
 })
 
 
@@ -227,6 +190,8 @@ $('#addressSubmit').on('click', function () {
     if (!$name || !$address || !$tel) {
         return
     }
+
+
     $.ajax({
         url: 'http://localhost/php/project_php/user_address.php',
         type: 'post',
@@ -248,8 +213,8 @@ $('#addressSubmit').on('click', function () {
                 icon: 1,
                 time: 1000
             }, function () {
-                $('.addAddress').css('display', 'none')
-                $('.info-input').css('display', 'none')
+                $('.addAddress').hide()
+                $('.info-input').hide()
                 $html =
                     ` <div class="address-li clear" addressID='${addressID}'>
                 <div class="left-icon">
@@ -270,7 +235,6 @@ $('#addressSubmit').on('click', function () {
                 $('.address-list').append($html)
 
 
-                //
                 $('.post_address>span').html($address)
                 $('.consignee .name').html($name)
                 $('.consignee .number').html($tel)
@@ -314,7 +278,7 @@ $('.address-list').on('click', '.delete', function () {
                 }, function () {
                     $parent.remove()
                     if ($('.address-li').length < 1) {
-                        $('.addAddress').css('display', 'block')
+                        $('.addAddress').show()
                     }
                 })
                 layer.close(index);
@@ -329,56 +293,103 @@ $('.address-list').on('click', '.delete', function () {
 
 //地址信息更新
 $('.address-list').on('click', '.update', function () {
-    $('.info-input').css('display', 'block')
-    $('.addressSubmit').css('display', 'none')
-    $('.updateAddress').css('display', 'block')
+    $('.info-input').show()
+    $('.addressSubmit').hide()
+    $('.updateAddress').show()
     $id = $(this).parents('.address-li').attr('addressID')
 
+})
 
 
+$('#updateAddress').on('click', function () {
+    $name = $('#name').val()
+    if ($('.area').html()) {
+        $address = $('.province').html() + $('.city').html() + $('.area').html() + $('#detail').val();
+    } else {
+        $address = $('.province').html() + $('.city').html() + $('#detail').val();
+    }
+    $tel = $('#tel').val()
+    if (!$name || !$address || !$tel) {
+        return
+    }
 
-    $('#updateAddress').on('click', function () {
-        $name = $('#name').val()
-        if ($('.area').html()) {
-            $address = $('.province').html() + $('.city').html() + $('.area').html() + $('#detail').val();
+    $.ajax({
+        url: 'http://localhost/php/project_php/update_address.php',
+        type: 'post',
+        dataType: 'json',
+        data: {
+            'addressID': $id,
+            'name': $name,
+            'address': $address,
+            'tel': $tel
+        },
+    }).then(({
+        msg,
+        code,
+        data
+    }) => {
+        if (code) {
+            layer.msg('修改成功', {
+                time: 1000
+            })
+            $('.address-list').html('')
+            get_address()
+            $('.info-input').hide()
+
         } else {
-            $address = $('.province').html() + $('.city').html() + $('#detail').val();
+            layer.msg('修改失败', {
+                time: 1000
+            })
+            $('.info-input').hide()
         }
-        $tel = $('#tel').val()
-        if (!$name || !$address || !$tel) {
-            return
+
+    })
+
+})
+
+
+
+function get_address() {
+    $.ajax({
+        url: 'http://localhost/php/project_php/get_address.php',
+        type: 'post',
+        dataType: 'json',
+        data: {
+            'username': $('.username').html()
         }
-
-
-
-        $.ajax({
-            url: 'http://localhost/php/project_php/update_address.php',
-            type: 'post',
-            dataType: 'json',
-            data: {
-                'addressID': $id,
-                'name': $name,
-                'address': $address,
-                'tel': $tel
-            },
-        }).then(({
-            msg,
-            code,
-            data
+    }).then(({
+        msg,
+        code,
+        data
+    }) => {
+        data.forEach(({
+            name,
+            telephone,
+            address,
+            addressID,
         }) => {
-            if (code) {
-                layer.msg('修改成功', {
-                    time: 1000
-                })
-                $('.info-input').css('display', 'none')
-            } else {
-                layer.msg('修改失败', {
-                    time: 1000
-                })
-                $('.info-input').css('display', 'none')
-            }
+            $('.addAddress').hide()
+            $html =
+                ` <div class="address-li clear" addressID='${addressID}'>
+                    <div class="left-icon">
+                    </div>
+                    <div class="address-detail">
+                        <input type="radio"  name='check'>
+                        <span class='name'>${name}</span>
+                        <p class="city-name">${address}</p>
+                        <span class="tel">${telephone}</span>
+                    </div>
+                    <div class="control">
+                        <a href="javascript:;" class="update">[编辑]</a>
+                        <a href="javascript:;" class="delete">[删除]</a>
+                    </div>
+                </div>`
 
+            $('.address-list').append($html)
         })
 
     })
-})
+
+}
+
+
