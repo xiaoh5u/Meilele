@@ -148,11 +148,11 @@ $global-color: #e62318;
         left: 20px;
         width: 15px;
         height: 13px;
-        background: url(/dist/images/flow_cart_bg_new.png) no-repeat -22px 0;
+        background: url(../images/flow_cart_bg_new.png) no-repeat -22px 0;
     }
 
     .label-active {
-        background: url(/dist/images/flow_cart_bg_new.png) no-repeat 0 0;
+        background: url(../images/flow_cart_bg_new.png) no-repeat 0 0;
     }
 
     .goods_list {
@@ -213,7 +213,7 @@ $global-color: #e62318;
                     float: left;
                     width: 21px;
                     height: 20px;
-                    background: url(/dist/images/flow_cart_bg_new.png)no-repeat;
+                    background: url(../images/flow_cart_bg_new.png)no-repeat;
 
                 }
 
@@ -324,7 +324,7 @@ $global-color: #e62318;
         .icon {
             width: 131px;
             height: 93px;
-            background: url(/dist/images/bg2.png) -840px -99px no-repeat;
+            background: url(../images/bg2.png) -840px -99px no-repeat;
         }
 
         .main {
@@ -342,7 +342,7 @@ $global-color: #e62318;
                 vertical-align: middle;
                 width: 149px;
                 height: 40px;
-                background: url(/dist/images/bg2.png) -311px -135px no-repeat;
+                background: url(../images/bg2.png) -311px -135px no-repeat;
             }
 
             .search {
@@ -365,7 +365,7 @@ $global-color: #e62318;
                     height: 29px;
                     vertical-align: top;
                     border: 1px solid #cecece;
-                    // background: url(/dist/images/liner) 0 0 repeat-x;
+                    // background: url(../images/liner) 0 0 repeat-x;
                     margin-top: 5px;
                     border-left: none;
                 }

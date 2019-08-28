@@ -34,7 +34,7 @@ $global-color: #e62318;
         float: right;
         width: 520px;
         height: 44px;
-        background: url(/dist/images/flow_step.png) 0 -45px no-repeat;
+        background: url(../images/flow_step.png) 0 -45px no-repeat;
         margin-top: 9px;
 
     }
@@ -107,7 +107,7 @@ $global-color: #e62318;
                     vertical-align: top;
                     width: 12px;
                     height: 16px;
-                    background: url(/dist/images/flow_pre_checkout_new.png) -15px 0px no-repeat;
+                    background: url(../images/flow_pre_checkout_new.png) -15px 0px no-repeat;
                 }
             }
 
@@ -217,7 +217,7 @@ $global-color: #e62318;
                         padding-left: 10px;
                         color: #fff;
                         font-weight: 700;
-                        background: url(/dist/images/bg2.png) 0 -140px no-repeat;
+                        background: url(../images/bg2.png) 0 -140px no-repeat;
                         cursor: pointer;
                         padding-top: 5px;
                         line-height: 17px;
@@ -225,7 +225,7 @@ $global-color: #e62318;
                         .rr {
                             float: right;
                             width: 10px;
-                            background: url(/dist/images/bg2.png) -299px -140px no-repeat;
+                            background: url(../images/bg2.png) -299px -140px no-repeat;
                             height: 25px;
                             margin-top: -5px;
                         }
@@ -315,11 +315,11 @@ $global-color: #e62318;
         left: 20px;
         width: 15px;
         height: 13px;
-        background: url(/dist/images/flow_cart_bg_new.png) no-repeat -22px 0;
+        background: url(../images/flow_cart_bg_new.png) no-repeat -22px 0;
     }
 
     .label-active {
-        background: url(/dist/images/flow_cart_bg_new.png) no-repeat 0 0;
+        background: url(../images/flow_cart_bg_new.png) no-repeat 0 0;
     }
 
     .goods_list {

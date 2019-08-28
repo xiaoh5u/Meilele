@@ -55,7 +55,7 @@ header {
             display: inline-block;
             width: 7px;
             height: 4px;
-            background: url(../../dist/images/nav.png) no-repeat;
+            background: url(../images/nav.png) no-repeat;
             position: relative;
             top: -3px;
             transition: .2s ease-in-out;
@@ -149,7 +149,7 @@ header {
                 display: inline-block;
                 width: 17px;
                 height: 14px;
-                background: url(../../dist/images/nav.png) no-repeat;
+                background: url(../images/nav.png) no-repeat;
                 background-position: 0 -53px;
                 position: relative;
                 top: 1px;
@@ -177,7 +177,7 @@ header {
                 display: inline-block;
                 width: 17px;
                 height: 14px;
-                background: url(../../dist/images/nav.png) no-repeat;
+                background: url(../images/nav.png) no-repeat;
                 background-position: 0 -10px;
                 position: relative;
                 top: 2px;
@@ -262,7 +262,7 @@ header {
                 text-align: center;
                 width: 152px;
                 height: 36px;
-                background: url(/dist/images/chat_icon.png) no-repeat;
+                background: url(../images/chat_icon.png) no-repeat;
                 background-position: 0 -526px;
                 position: absolute;
                 right: 100px;
@@ -288,7 +288,7 @@ header {
             .content {
                 width: 78px;
                 height: 72px;
-                background: url(/dist/images/chat_icon.png) no-repeat;
+                background: url(../images/chat_icon.png) no-repeat;
             }
 
             &:nth-of-type(1) {
@@ -385,7 +385,7 @@ header {
             width: 50px;
             height: 50px;
             margin: 0 auto;
-            background: url(/dist/images/footerIcon.png);
+            background: url(../images/footerIcon.png);
 
         }
 
@@ -440,7 +440,7 @@ header {
         float: left;
         width: 240px;
         height: 165px;
-        background: url(/dist/images/footer.png) 0 -100px no-repeat;
+        background: url(../images/footer.png) 0 -100px no-repeat;
 
         p:nth-of-type(1) {
             font-size: 14px;
@@ -476,7 +476,7 @@ header {
                 width: 11px;
                 height: 16px;
                 margin: 3px 0 0 3px;
-                background: url(/dist/images/footerIcon.png);
+                background: url(../images/footerIcon.png);
             }
 
             span {
@@ -607,7 +607,7 @@ header {
                 i {
                     width: 27px;
                     float: left;
-                    background: url(/dist/images/credit.png);
+                    background: url(../images/credit.png);
                     margin-right: 5px;
                 }
 

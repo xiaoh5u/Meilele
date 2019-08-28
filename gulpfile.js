@@ -48,25 +48,26 @@ function swallowError(error) {
 //     }));
 // })
 gulp.task('copy', function () {
-  return gulp.src('./src/js/layui/**')
-  .pipe(gulp.dest('./dist/js/layui'))
+  return gulp.src('./src/lib/**')
+  .pipe(gulp.dest('./dist/src/lib'))
 })
 
 gulp.task('sass', function () {
   return gulp.src('./src/sass/*.{scss,sass}')
     .pipe(sass()) // 通过sass插件将sass编译为css，如果需要编译less，则改用less插件
     .on('error', swallowError)//报错后警告不退出
-    // .pipe(autoprefixer({
-    //   overrideBrowserslist: ['last 20 versions', 'Android >= 4.0'],
-    // }))
+    .pipe(autoprefixer({
+      overrideBrowserslist: ['last 20 versions', 'Android >= 4.0'],
+    }))
     // .pipe(sourcemaps.init())
     // .pipe(gulp.dest('./dist/css'))
-    // .pipe(cleancss())
-    // .pipe(rename({
-    //   suffix: '.min'
-    // }))
+    .pipe(cleancss())
+    .pipe(rename({
+      suffix: '.min'
+    }))
     // .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dist/css'))
+    .pipe(gulp.dest('./dist/src/css'))
+    .pipe(gulp.dest('./src/css'))
     .pipe(reload({
       stream: true
     }));
@@ -74,8 +75,8 @@ gulp.task('sass', function () {
 
 
 gulp.task('js', function () {
-  return gulp.src('src/js/*.js')
-    .pipe(sourcemaps.init())
+  return gulp.src('./src/js/*.js')
+    // .pipe(sourcemaps.init())
     // .pipe(babel({ // 通过babel插件将ES6转成ES5
     //   presets: ['es2015']
     // }))
@@ -86,37 +87,37 @@ gulp.task('js', function () {
     //   suffix: '.min' // 添加后缀
     // }))
     // .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dist/js'))
+    .pipe(gulp.dest('./dist/src/js'))
     .pipe(reload({
       stream: true
     }));
 })
 
 gulp.task('image', function () {
-  return gulp.src('src/images/*')
-    // .pipe(imagemin([
-    //   imagemin.gifsicle({
-    //     interlaced: true
-    //   }),
-    //   imagemin.jpegtran({
-    //     progressive: true
-    //   }),
-    //   imagemin.optipng({
-    //     optimizationLevel: 5
-    //   }),
-    //   imagemin.svgo({
-    //     plugins: [{
-    //         removeViewBox: true
-    //       },
-    //       {
-    //         cleanupIDs: false
-    //       }
-    //     ]
-    //   })
-    // ], {
-    //   verbose: true
-    // }))
-    .pipe(gulp.dest('./dist/images'));
+  return gulp.src('./src/images/*')
+    .pipe(imagemin([
+      imagemin.gifsicle({
+        interlaced: true
+      }),
+      imagemin.jpegtran({
+        progressive: true
+      }),
+      imagemin.optipng({
+        optimizationLevel: 5
+      }),
+      imagemin.svgo({
+        plugins: [{
+            removeViewBox: true
+          },
+          {
+            cleanupIDs: false
+          }
+        ]
+      })
+    ], {
+      verbose: true
+    }))
+    .pipe(gulp.dest('./dist/src/images'));
 })
 
 
@@ -130,20 +131,20 @@ gulp.task('index', async () => {
 })
 
 gulp.task('html', async () => {
-  gulp.src('html/*.{html,htm}')
-    .pipe(gulp.dest('./dist/html'))
+  gulp.src('./src/html/*.{html,htm}')
+    .pipe(gulp.dest('./dist/src/html'))
     .pipe(reload({
       stream: true
     }))
 })
 
-gulp.task('layout', async () => {
-  gulp.src('layout/*.{html,htm}')
-    .pipe(gulp.dest('./dist/layout'))
-    .pipe(reload({
-      stream: true
-    }))
-})
+// gulp.task('layout', async () => {
+//   gulp.src('layout/*.{html,htm}')
+//     .pipe(gulp.dest('./dist/layout'))
+//     .pipe(reload({
+//       stream: true
+//     }))
+// })
 
 gulp.task('delete', function () {
   return del(['./dist']); // 加return 方法变为同步
@@ -153,7 +154,7 @@ gulp.task('default', ['delete'], function () {
   gulp.start('serve');
 })
 
-gulp.task('serve', ['index', 'sass', 'js', 'image', 'layout','copy', 'html'], function () {
+gulp.task('serve', ['index', 'sass', 'js', 'image','copy', 'html'], function () {
   browserSync.init({
     files: ['**'],
     server: {
@@ -164,11 +165,11 @@ gulp.task('serve', ['index', 'sass', 'js', 'image', 'layout','copy', 'html'], fu
   });
 
   gulp.watch('./index.html', ['index']);
-  gulp.watch('src/sass/*.{scss,sass}', ['sass']);
-  gulp.watch('src/js/*.js', ['js']);
+  gulp.watch('./src/sass/*.{scss,sass}', ['sass']);
+  gulp.watch('./src/js/*.js', ['js']);
   // gulp.watch('src/images/*', ['image'])
-  gulp.watch('html/*.{html,htm}', ['html']);
-  gulp.watch('layout/*.{html,htm}', ['layout']);
+  gulp.watch('./src/html/*.{html,htm}', ['html']);
+  gulp.watch('./src/layout/*.{html,htm}', ['layout']);
 
   // gulp.watch('./*.{html,htm}').on('change', reload);
 })

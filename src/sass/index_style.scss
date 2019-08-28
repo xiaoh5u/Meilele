@@ -66,7 +66,7 @@ $global-color: #e62318;
             display: block;
             width: 22px;
             height: 22px;
-            background: url(../../dist/images/index.png) -60px -251px no-repeat;
+            background: url(../images/index.png) -60px -251px no-repeat;
             position: absolute;
             top: 8px;
             right: 7px;
@@ -229,14 +229,14 @@ $global-color: #e62318;
                 width: 20px;
                 height: 20px;
                 margin: 6px 10px 0 0;
-                background: url(../../dist/images/banner-nav.png) no-repeat;
+                background: url(../images/banner-nav.png) no-repeat;
                 background-position: -55px -48px;
 
             }
 
             &:hover {
                 .icon {
-                    background: url(../../dist/images/banner-nav.png) no-repeat;
+                    background: url(../images/banner-nav.png) no-repeat;
                     background-position: -97px -48px;
                 }
             }
@@ -249,14 +249,14 @@ $global-color: #e62318;
                 width: 20px;
                 height: 20px;
                 margin: 6px 10px 0 0;
-                background: url(../../dist/images/banner-nav.png) no-repeat;
+                background: url(../images/banner-nav.png) no-repeat;
                 background-position: -55px -84px;
 
             }
 
             &:hover {
                 .icon {
-                    background: url(../../dist/images/banner-nav.png) no-repeat;
+                    background: url(../images/banner-nav.png) no-repeat;
                     background-position: -98px -84px;
                 }
             }
@@ -268,14 +268,14 @@ $global-color: #e62318;
                 width: 20px;
                 height: 20px;
                 margin: 6px 10px 0 0;
-                background: url(../../dist/images/banner-nav.png) no-repeat;
+                background: url(../images/banner-nav.png) no-repeat;
                 background-position: -55px -123px;
 
             }
 
             &:hover {
                 .icon {
-                    background: url(../../dist/images/banner-nav.png) no-repeat;
+                    background: url(../images/banner-nav.png) no-repeat;
                     background-position: -96px -123px;
                 }
             }
