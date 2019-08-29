@@ -3,7 +3,7 @@
 
 
 $.ajax({
-    url: 'http://localhost/php/project_php/getCar.php',
+    url: `//${location.hostname}/php/project_php/getCar.php`,
     type: 'post',
     dataType: 'json',
     data: {
@@ -22,7 +22,7 @@ $.ajax({
         }) => {
 
             $.ajax({
-                url: 'http://localhost/php/project_php/get_goods_detail.php',
+                url: `//${location.hostname}/php/project_php/get_goods_detail.php`,
                 type: 'post',
                 dataType: 'json',
                 data: {
@@ -131,7 +131,7 @@ $('.goods-normal').on('click', '.deleteAll', function () {
 
 
                 $.ajax({
-                    url: 'http://localhost/php/project_php/goods_delete.php',
+                    url: `//${location.hostname}/php/project_php/goods_delete.php`,
                     type: 'post',
                     dataType: 'json',
                     data: {
@@ -159,7 +159,7 @@ $('.goods-normal').on('click', '.delete', function () {
         title: '提示'
     }, function (index) {
         $.ajax({
-            url: 'http://localhost/php/project_php/goods_delete.php',
+            url: `//${location.hostname}/php/project_php/goods_delete.php`,
             type: 'post',
             dataType: 'json',
             data: {
@@ -304,7 +304,7 @@ function getTotal() {
 
 function update(id, addnum) {
     $.ajax({
-        url: 'http://localhost/php/project_php/addCar.php',
+        url: `//${location.hostname}/php/project_php/addCar.php`,
         type: 'post',
         dataType: 'json',
         data: {

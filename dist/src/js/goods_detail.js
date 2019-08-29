@@ -20,7 +20,7 @@ function getUrlContent(name) {
 var goodsid = getUrlContent('goodsid')
 
 $.ajax({
-  url: 'http://localhost/php/project_php/get_goods_detail.php',
+  url: `//${location.hostname}/php/project_php/get_goods_detail.php`,
   type: 'post',
   dataType: 'json',
   data: {
@@ -265,7 +265,8 @@ $('.click').on('change', ' .num', function () {
     $num = 1
     layer.msg('数量不能为0', function () {})
   }
-  $('.click .num').val($num)
+  
+  
 })
 
 //商品选择点击事件
@@ -305,7 +306,7 @@ $('.goods_info').on('click', '.addSpc', function () {
   $goodsnum = $('.goods_add .num').val()*1
   
   $.ajax({
-    url: 'http://localhost/php/project_php/get_car_num.php',
+    url: `//${location.hostname}/php/project_php/get_car_num.php`,
     type: 'post',
     dataType: 'json',
     data: {
@@ -319,7 +320,7 @@ $('.goods_info').on('click', '.addSpc', function () {
     var num = ($goodsnum +Number(count))*1
     if (count > 0) {
       $.ajax({
-        url: 'http://localhost/php/project_php/addCar.php',
+        url: `//${location.hostname}/php/project_php/addCar.php`,
         type: 'post',
         dataType: 'json',
         data: {
@@ -344,7 +345,7 @@ $('.goods_info').on('click', '.addSpc', function () {
 
     } else {
       $.ajax({
-        url: 'http://localhost/php/project_php/addCar.php',
+        url: `//${location.hostname}/php/project_php/addCar.php`,
         type: 'post',
         dataType: 'json',
         data: {

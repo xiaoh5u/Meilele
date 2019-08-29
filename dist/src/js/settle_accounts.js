@@ -10,7 +10,7 @@ for (var i = 0; i < goodsid.length; i++) {
 
 
     $.ajax({
-        url: 'http://localhost/php/project_php/get_goods_detail.php',
+        url: `//${location.hostname}/php/project_php/get_goods_detail.php`,
         type: 'post',
         dataType: 'json',
         async: false,
@@ -73,7 +73,7 @@ get_address()
 
 //收货地址三级联动
 $.ajax({
-    url: 'http://api.yytianqi.com/citylist/id/2',
+    url: `http://api.yytianqi.com/citylist/id/2`,
     type: 'post',
     dataType: 'json',
 }).then(({
@@ -193,7 +193,7 @@ $('#addressSubmit').on('click', function () {
 
 
     $.ajax({
-        url: 'http://localhost/php/project_php/user_address.php',
+        url: `//${location.hostname}/php/project_php/user_address.php`,
         type: 'post',
         dataType: 'json',
         data: {
@@ -261,7 +261,7 @@ $('.address-list').on('click', '.delete', function () {
         title: '提示'
     }, function (index) {
         $.ajax({
-            url: 'http://localhost/php/project_php/remove_address.php',
+            url: `//${location.hostname}/php/project_php/remove_address.php`,
             type: 'post',
             dataType: 'json',
             data: {
@@ -313,7 +313,7 @@ $('#updateAddress').on('click', function () {
     }
 
     $.ajax({
-        url: 'http://localhost/php/project_php/update_address.php',
+        url: `//${location.hostname}/php/project_php/update_address.php`,
         type: 'post',
         dataType: 'json',
         data: {
@@ -350,7 +350,7 @@ $('#updateAddress').on('click', function () {
 
 function get_address() {
     $.ajax({
-        url: 'http://localhost/php/project_php/get_address.php',
+        url: `//${location.hostname}/php/project_php/get_address.php`,
         type: 'post',
         dataType: 'json',
         data: {

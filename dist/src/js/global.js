@@ -69,7 +69,7 @@ $('.sidebar-container .top').on('click', function () {
 
 
 $.ajax({
-    url: 'http://localhost/php/project_php/get_car_all.php',
+    url: `//${location.hostname}/php/project_php/get_car_all.php`,
     type: 'post',
     dataType: 'json',
     data: {

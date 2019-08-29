@@ -120,46 +120,7 @@ $('.screen_left a').on('click', function () {
 
 
 /*******************************************商品分类*****************************************/
-var str = ''
-//类型分类
-$('.goods_classify a').on('click', function () {
-    $title = $(this).html()
-    str += $title
-    getAll(str);
-})
-//价格分类
-$('.goods_price a').on('click', function () {
-    $arr = $(this).html().split('-')
-    $start = $arr[0];
-    $end = $arr[1];
-    priceClassfy($start, $end)
 
-})
-
-//风格选择
-$('.goods_style a').on('click', function () {
-    $title = $(this).html()
-
-    str += $title
-    getAll(str);
-})
-
-//风格选择
-
-//清空选择
-$('.selected .clearAll').on('click', function () {
-    getAll('');
-    str = ''
-
-    $('.screen_left a:eq(0)').css({
-        'background-color': '#e62318',
-        'color': 'white'
-    }).siblings().css({
-        'background-color': '#e6e6e6',
-        'color': '#666'
-    })
-})
-//清空选择
 
 /*******************************************商品分类*****************************************/
 
@@ -167,107 +128,143 @@ $('.selected .clearAll').on('click', function () {
 
 /******************************获取数据库商品&&模糊查询&&分页******************************* */
 
-//默认搜索为空
-getAll('')
 
-var timer;
 
-$('.search-input').on('input', function () {
-    clearTimeout(timer);
+layui.use('laypage', function () {
+    var laypage = layui.laypage;
 
-    timer = setTimeout(() => {
+    // 全局分类
+    var label = '';
+    var order = 'goods_id';
+    var sort = 'ASC';
+    var num = 0
+    renderList(1, true);
+    var timer;
+    $('.search-input').on('input', function () {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
 
-        var key = $(this).val()
-        getAll(key);
-    }, 1000)
-
-})
-
-$('.search-button').on('click', function () {
-    var key = $(this).val()
-    getAll(key);
-})
-
-////获取商品总条数
-function getAll(key) {
-
-    $.ajax({
-        url: 'http://localhost/php/project_php/get_goods_num.php',
-        type: 'post',
-        dataType: 'json',
-        data: {
-            key
-        }
-    }).then(({
-        data
-    }) => {
-        $('.goods_num').html(data)
-        getLayui(key, data)
+            label = $(this).val()
+            renderList(1, true);
+        }, 500)
 
     })
 
-}
-//调用Layui分页功能
-function getLayui(key, data) {
-    //调用layui分页
 
-    layui.use('laypage', function () {
-        var laypage = layui.laypage;
+    $('.search-button').on('click', function () {
+        label = $(this).val()
+        renderList(1, true);
+    })
 
-        //执行一个laypage实例
-        laypage.render({
-            elem: 'list',
-            count: data, //数据总数
-            theme: '#e62318',
-
-            jump: function (obj) {
-
-                //模糊查询
-                renderList(key, obj)
-            }
-        });
-    });
-}
-
- 
-
-//模糊查询 及 获取商品列表
-function renderList(key, obj) {
-    $.ajax({
-        url: 'http://localhost/php/project_php/get_goodsList.php',
-        type: 'post',
-        dataType: 'json',
-        beforeSend: (function () {
-            layui.use('layer', function () {
-                var layer = layui.layer;
-                layer.msg('拼命加载中..')
-            });
-        }),
-        data: {
-             key,
-            'start': obj.curr,
-            'pageSize': 20,
+    $('.screen_left a:eq(0)').on('click', function () {
+        num++;
+        if (num % 2 === 0) {
+            sort = 'ASC'
+        } else if (num % 2 === 1) {
+            sort = 'DESC';
         }
-    }).then(({
-        code,
-        msg,
-        data
-    }) => {
-        if (code) {
-            $('#list>li').remove()
+        order = 'goods_id';
+        renderList(1, false);
+    })
+    $('.sales-order ').on('click', function () {
+        num++;
+        if (num % 2 === 0) {
+            sort = 'ASC'
+        } else if (num % 2 === 1) {
+            sort = 'DESC';
+        }
+        order = 'goods_xl';
+        renderList(1, false);
+    })
+    $('.price-order ').on('click', function () {
+        num++;
+        if (num % 2 === 0) {
+            sort = 'ASC'
+        } else if (num % 2 === 1) {
+            sort = 'DESC';
+        }
+        order = 'goods_price';
+        renderList(1, false);
+    })
 
-            data.forEach(({
-                goods_id,
-                goods_name,
-                goods_desc,
-                goods_price,
-                goods_attr,
-                goods_imgs_big,
-                goods_imgs,
-                goods_detail,
-                goods_xl
-            }) => {
-                html = `
+    var str = ''
+    //类型分类
+    $('.goods_classify a').on('click', function () {
+        label = $(this).html()
+        str += label
+        renderList(1, true);
+    })
+    //价格分类
+    $('.goods_price a').on('click', function () {
+        $arr = $(this).html().split('-')
+        $start = $arr[0];
+        $end = $arr[1];
+        priceClassfy($start, $end)
+    })
+
+    //风格选择
+    $('.goods_style a').on('click', function () {
+        label = $(this).html()
+        str += label
+        renderList(1, true);
+    })
+    //风格选择
+
+    //清空选择
+    $('.selected .clearAll').on('click', function () {
+        label = '';
+        sort = ''
+        str = ''
+        renderList(1, true);
+        $('.screen_left a:eq(0)').css({
+            'background-color': '#e62318',
+            'color': 'white'
+        }).siblings().css({
+            'background-color': '#e6e6e6',
+            'color': '#666'
+        })
+    })
+    //清空选择
+
+    function renderList(page = 1, tag) {
+        $.ajax({
+            url: `//${location.hostname}/php/project_php/get_goodsList.php`,
+            type: 'get',
+            dataType: 'json',
+            beforeSend: (function () {
+                layui.use('layer', function () {
+                    var layer = layui.layer;
+                    layer.msg('拼命加载中..')
+                });
+            }),
+            data: {
+                page,
+                size: 20,
+                label,
+                order,
+                sort
+            },
+        }).then(({
+            code,
+            data,
+            total,
+        }) => {
+            var total = total
+            $('.goods_total .goods_num').html(total)
+            var html = '';
+            if (code) {
+                data.forEach(({
+                    goods_id,
+                    goods_name,
+                    goods_desc,
+                    goods_price,
+                    goods_attr,
+                    goods_imgs_big,
+                    goods_imgs,
+                    goods_detail,
+                    goods_xl
+                }) => {
+                    html += `
                 <li>
                 <div class="box">
                     <a href="javascript:;" goods_id='${goods_id}'>
@@ -301,61 +298,44 @@ function renderList(key, obj) {
                 </div>
                 </li>
 
-                `
-                $('#list').prepend(html)
-            })
+                `               
+                });
+                $('#list').html(html)
+              
+                if (tag) {
+                    laypage.render({
+                        elem: 'paga', //注意，这里的 test1 是 ID，不用加 # 号
+                        limit: 20,
+                        theme: '#e62318',
+                        count: total * 1, //数据总数，从服务端得到
+                        jump: function (obj, first) {
+                            //obj包含了当前分页的所有参数，比如：
+                            // console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+                            // console.log(obj.limit); //得到每页显示的条数
 
-            /****************************以上为基础代码***************************** */
-
-
-
-            /**排序**/
-            var oder = 'normal'
-            var num = 0;
-            var attr = 'id'
-
-            $('.screen_left a:eq(0)').on('click', function () {
-                num++;
-                attr = 'id'
-                orderA(num, attr)
-            })
-            $('.sales-order ').on('click', function () {
-                num++;
-                attr = 'goods_sales'
-                orderA(num, attr)
-            })
-            $('.price-order ').on('click', function () {
-                num++;
-                attr = 'goods_price'
-                orderA(num, attr)
-            })
-
-            function orderA(num, attr) {
-                if (num % 3 === 1) {
-                    order = 'asc'
-
-                } else if (num % 3 === 2) {
-                    order = 'desc'
-                } else {
-                    order = 'normal'
+                            //首次不执行
+                            if (!first) {
+                                //do something
+                                renderList(obj.curr, false);
+                            }
+                        }
+                    });
                 }
-                ajax({
-                    url: 'http://localhost/php/project_php/goods_order.php',
-                    data: {
-                        order,
-                        attr,
-                    }
-                })
+
+
+
             }
-            /**排序**/
-
-        }
-    })
+        })
 
 
 
 
-}
+    }
+});
+
+
+
+
 /******************************获取数据库商品&&模糊查询&&分页******************************* */
 
 
@@ -375,7 +355,7 @@ $('#list').on('click', '.addCar', function () {
     $goodsnum = 1;
 
     $.ajax({
-        url: 'http://localhost/php/project_php/get_car_num.php',
+        url: `//${location.hostname}/php/project_php/get_car_num.php`,
         type: 'post',
         dataType: 'json',
         data: {
@@ -386,10 +366,10 @@ $('#list').on('click', '.addCar', function () {
         code,
         count
     }) => {
-        var num =  $goodsnum += count*1
+        var num = $goodsnum += count * 1
         if (count > 0) {
             $.ajax({
-                url: 'http://localhost/php/project_php/addCar.php',
+                url: `//${location.hostname}/php/project_php/addCar.php`,
                 type: 'post',
                 dataType: 'json',
                 data: {
@@ -406,15 +386,15 @@ $('#list').on('click', '.addCar', function () {
                         icon: 1,
                         time: 2000
                     }, function () {});
-                    $n =  $('.goods-num').html()*1
-                    $('.goods-num').html($n+1)
-                    $('.shopping-trolley strong').html($n+1)
+                    $n = $('.goods-num').html() * 1
+                    $('.goods-num').html($n + 1)
+                    $('.shopping-trolley strong').html($n + 1)
                 }
             })
 
         } else {
             $.ajax({
-                url: 'http://localhost/php/project_php/addCar.php',
+                url: `//${location.hostname}/php/project_php/addCar.php`,
                 type: 'post',
                 dataType: 'json',
                 data: {
@@ -426,14 +406,14 @@ $('#list').on('click', '.addCar', function () {
             }).then(({
                 code,
             }) => {
-                    layer.msg('添加成功', {
-                        icon: 1,
-                        time: 2000
-                    }, function () {});
-                   $n =  $('.goods-num').html()*1
-                    $('.goods-num').html($n+1)
-                    $('.shopping-trolley strong').html($n+1)
-                
+                layer.msg('添加成功', {
+                    icon: 1,
+                    time: 1000
+                }, function () {});
+                $n = $('.goods-num').html() * 1
+                $('.goods-num').html($n + 1)
+                $('.shopping-trolley strong').html($n + 1)
+
             })
 
         }
@@ -450,7 +430,7 @@ $('#list').on('click', '.addCar', function () {
 //价格排序函数
 function priceClassfy(start, end) {
     ajax({
-        url: 'http://localhost/php/project_php/goods_price_classfy.php',
+        url: `//${location.hostname}/php/project_php/goods_price_classfy.php`,
         data: {
             'start': start,
             'end': end
@@ -538,7 +518,7 @@ function ajax({
 
 
 
-$('#list').on('click','img',function(){
+$('#list').on('click', 'img', function () {
     $id = $(this).parents('.box').find('a:eq(0)').attr('goods_id')
-    location.href=  `../html/goods_detail.html?goodsid=${$id}`
+    location.href = `../html/goods_detail.html?goodsid=${$id}`
 })

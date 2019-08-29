@@ -87,7 +87,7 @@ $('#button').on('click', function () {
     if (sum === 5) {
         //验证通过
         $.ajax({
-            url: 'http://localhost/php/project_php/user_register.php',
+            url: `//${location.hostname}/php/project_php/user_register.php`,
             type: 'post',
             dataType: 'json',
             data: {

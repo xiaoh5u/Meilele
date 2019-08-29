@@ -1,6 +1,6 @@
 $('#btn').on('click', function () {
     $.ajax({
-        url: 'http://localhost/php/project_php/user_login.php',
+        url: `//${location.hostname}/php/project_php/user_login.php`,
         type: 'post',
         dataType: 'json',
         data: {
