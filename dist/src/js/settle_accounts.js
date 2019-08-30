@@ -227,7 +227,7 @@ $('#addressSubmit').on('click', function () {
                     <span class="tel">${$tel}</span>
                 </div>
                 <div class="control">
-                    <a href="javascript:;" class="updata">[编辑]</a>
+                    <a href="javascript:;" class="update">[编辑]</a>
                     <a href="javascript:;" class="delete">[删除]</a>
                 </div>
              </div>`

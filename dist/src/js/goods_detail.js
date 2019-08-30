@@ -297,10 +297,9 @@ $('.goods_info').on('click', '.addSpc', function () {
       var layer = layui.layer;
 
       layer.msg('还没登录哦');
-      return
     });
+    return
   }
-
 
   $username = $('.username').html()
   $goodsnum = $('.goods_add .num').val()*1
@@ -318,6 +317,7 @@ $('.goods_info').on('click', '.addSpc', function () {
     count
   }) => {
     var num = ($goodsnum +Number(count))*1
+    
     if (count > 0) {
       $.ajax({
         url: `//${location.hostname}/php/project_php/addCar.php`,
