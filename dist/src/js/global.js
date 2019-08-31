@@ -86,6 +86,8 @@ $.ajax({
         })
         $('.goods-num').html($sum)
         $('.shopping-trolley  strong').html($sum)
+
+       
     }
 })
 

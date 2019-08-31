@@ -1,7 +1,5 @@
 //渲染页面
 
-
-
 $.ajax({
     url: `//${location.hostname}/php/project_php/getCar.php`,
     type: 'post',
@@ -20,6 +18,12 @@ $.ajax({
             goodsid,
             goodsnum
         }) => {
+            //默认可减
+            //如果商品小于2 就不让你减 :)
+            var state = true
+            if (goodsnum < 2) {
+                state = false
+            }
 
             $.ajax({
                 url: `//${location.hostname}/php/project_php/get_goods_detail.php`,
@@ -65,7 +69,7 @@ $.ajax({
             </div>
 
             <div class="num clear">
-                <a href="javascript:;" class="reduce" click='false'></a>
+                <a href="javascript:;" class="reduce" click='${state}'></a>
                 <input type="text" class="count" value='${goodsnum}'>
                 <a href="javascript:;" class="add"></a>
             </div>
@@ -92,12 +96,9 @@ $.ajax({
 })
 
 
-
-
-
-
-
 //渲染页面
+
+
 
 $('.goods-normal').on('click', '.checkone', function () {
 
@@ -117,8 +118,16 @@ $('.goods-normal').on('click', '.checkAll', function () {
     }
 })
 
-//删除多个
+//删除选中
 $('.goods-normal').on('click', '.deleteAll', function () {
+    if ($('.checkone:checked').length == 0) {
+        layer.msg('未选中任何商品', {
+            icon: 2,
+            title: '提示',
+            time: 1000
+        }, function () {})
+        return
+    }
 
     layer.confirm('确认删除?', {
         icon: 3,
@@ -138,21 +147,22 @@ $('.goods-normal').on('click', '.deleteAll', function () {
                         'goodsid': $goodsids,
                         'username': $('.username').html(),
                     }
+                }).then((code) => {
+                    location.reload()
                 })
             }
         }
-        location.reload()
         layer.close(index);
+
     });
 
 
     getTotal()
-
 })
 
 //删除行
 $('.goods-normal').on('click', '.delete', function () {
-
+    $this = $(this).parents('.info')
     $id = $(this).parents('li').attr('goodsid')
     layer.confirm('确认删除?', {
         icon: 3,
@@ -166,8 +176,17 @@ $('.goods-normal').on('click', '.delete', function () {
                 'goodsid': $id,
                 'username': $('.username').html(),
             }
+        }).then(code => {
+            if (code) {
+                $this.remove()
+                if ($('.info').length == 0) {
+                    $('.goods-normal').hide()
+                    $('.no-goods').show()
+                    $('.goods-num').html(0)
+                    $('.shopping-trolley strong').html(0)
+                }
+            }
         })
-        location.reload()
 
         layer.close(index);
     });
@@ -207,14 +226,22 @@ $('.goods-normal').on('click', '.checkAll', function () {
 //数量加
 $('.goods-normal').on('click', '.add', function () {
     $oInfo = $(this).parents('.info')
-    all($oInfo, 1)
     if ($count > 1) {
-        $($oInfo).find('.reduce').attr('click', ' true')
+        $oInfo.find('.reduce').attr('click', ' true')
     }
-
+    if ($count > 999) {
+        $oInfo.find('.count').val(999)
+        layer.msg('超过最大购买数量')
+        return
+    }
+    $count = all($oInfo, 1)
     $id = $(this).parents('li').attr('goodsid')
     $addnum = $(this).parents('.num').find('.count').val()
     update($id, $addnum)
+    $n = $('.goods-num').html() * 1
+    $('.goods-num').html($n + 1)
+    $('.shopping-trolley strong').html($n + 1)
+
 
 
 })
@@ -226,27 +253,54 @@ $('.goods-normal').on('click', '.reduce', function () {
     if ($(this).attr('click') === 'false') {
         return
     }
-    $count = all($oInfo, -1)
     if ($count < 2) {
         $(this).attr('click', 'false')
     }
+    $count = all($oInfo, -1)
     $id = $(this).parents('li').attr('goodsid')
     $addnum = $(this).parents('.num').find('.count').val()
     update($id, $addnum)
+    $n = $('.goods-num').html() * 1
+    $('.goods-num').html($n - 1)
+    $('.shopping-trolley strong').html($n - 1)
+
+})
+
+
+//输入框聚焦
+$('.goods-normal').on('focus', '.count', function () {
+    $startnum = $(this).val() //拿初始数
+    // console.log('聚焦')
 })
 //输入框失焦
 $('.goods-normal').on('change', '.count', function () {
+    // console.log('失焦')
     if ($(this).val() < 1) {
         $(this).val('1')
     }
+    if ($(this).val() > 999) {
+        layer.msg('超过最大购买数量')
+        $(this).val('999')
+    }
     $id = $(this).parents('li').attr('goodsid')
-    $addnum = $(this).parents('.num').find('.count').val()
-
-    $subtotal = $('.price span').html() * $addnum
-    $('.info .subtotal').html($subtotal)
-
+    $addnum = $(this).val() //更改后的数目
+    $subtotal = $(this).parents('.info').find('.price span').html() * $addnum
+    
+    $(this).parents('.info').find('.subtotal span').html($subtotal)
     update($id, $addnum)
+    getTotal()
+    $changenum = $addnum - $startnum //更改后的数目-初始数=  添加 || 减少了多少商品
+
+    $n = $('.goods-num').html() * 1
+    $('.goods-num').html($n + $changenum)
+    $('.shopping-trolley strong').html($n + $changenum)
+    // if( $('.goods-num').html()>99){
+    //     $('.goods-num').html('99+')
+    //     $('.shopping-trolley strong').html('99+')
+    // }
+
 })
+
 
 //单选
 $('.goods-normal').on('click', '.checkone', function () {
@@ -317,9 +371,7 @@ function update(id, addnum) {
         code,
     }) => {
         if (code) {
-            $n = $('.goods-num').html() * 1
-            $('.goods-num').html($n + 1)
-            $('.shopping-trolley strong').html($n + 1)
+
         }
     })
 }

@@ -258,11 +258,11 @@ $('.click').on('click', '.reduce', function () {
 $('.click').on('change', ' .num', function () {
   $num = $('.click .num').val() * 1
   if ($num > 999) {
-    $num = 999
+    $('.click .num').val('999')
     layer.msg('咋滴？要上天呐', function () {})
   }
   if ($num < 1) {
-    $num = 1
+    $('.click .num').val('1')
     layer.msg('数量不能为0', function () {})
   }
   
@@ -337,9 +337,28 @@ $('.goods_info').on('click', '.addSpc', function () {
             icon: 1,
             time: 2000
           }, function () {});
-          $n = $('.goods-num').html() * 1
-          $('.goods-num').html($n + 1)
-          $('.shopping-trolley strong').html($n + 1)
+        
+          $.ajax({
+            url: `//${location.hostname}/php/project_php/get_car_all.php`,
+            type: 'post',
+            dataType: 'json',
+            data: {
+                'username': $('.username').html(),
+            }
+          }).then(({
+            code,
+            data
+          }) => {
+            if (code) {
+                $sum = 0;
+                data.forEach(item => {
+                    $sum += item.goodsnum * 1
+                })
+                $('.goods-num').html($sum)
+                $('.shopping-trolley  strong').html($sum)
+              
+            }
+          })
         }
       })
 
@@ -361,12 +380,29 @@ $('.goods_info').on('click', '.addSpc', function () {
           icon: 1,
           time: 2000
         }, function () {});
-        $n = $('.goods-num').html() * 1
-        $('.goods-num').html($n + 1)
-        $('.shopping-trolley strong').html($n + 1)
+        
+        $.ajax({
+          url: `//${location.hostname}/php/project_php/get_car_all.php`,
+          type: 'post',
+          dataType: 'json',
+          data: {
+              'username': $('.username').html(),
+          }
+        }).then(({
+          code,
+          data
+        }) => {
+          if (code) {
+              $sum = 0;
+              data.forEach(item => {
+                  $sum += item.goodsnum * 1
+              })
+              $('.goods-num').html($sum)
+              $('.shopping-trolley  strong').html($sum)
 
-
-  
+            
+          }
+        })
       })
 
     }
